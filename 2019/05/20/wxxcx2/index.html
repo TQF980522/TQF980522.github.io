@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="小程序,javascropt,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="小程序一、小程序起步1.微信小程序官网](https://mp.weixin.qq.com/cgi-bin/wx)注册账号 2.进入官网看文档 二、微信小程序路由配置 在pages里面新建pages会在pack.json自动生成路由  1234567&quot;pages&quot;: [  &quot;pages/index/index&quot;,  &quot;pages/logs/logs&quot;,  &quot;pages/mine/mine&quot;,  &quot;">
+<meta name="keywords" content="小程序,javascropt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序">
+<meta property="og:url" content="http://yoursite.com/2019/05/20/wxxcx2/index.html">
+<meta property="og:site_name" content="TQFblog">
+<meta property="og:description" content="小程序一、小程序起步1.微信小程序官网](https://mp.weixin.qq.com/cgi-bin/wx)注册账号 2.进入官网看文档 二、微信小程序路由配置 在pages里面新建pages会在pack.json自动生成路由  1234567&quot;pages&quot;: [  &quot;pages/index/index&quot;,  &quot;pages/logs/logs&quot;,  &quot;pages/mine/mine&quot;,  &quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-21T11:42:36.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序">
+<meta name="twitter:description" content="小程序一、小程序起步1.微信小程序官网](https://mp.weixin.qq.com/cgi-bin/wx)注册账号 2.进入官网看文档 二、微信小程序路由配置 在pages里面新建pages会在pack.json自动生成路由  1234567&quot;pages&quot;: [  &quot;pages/index/index&quot;,  &quot;pages/logs/logs&quot;,  &quot;pages/mine/mine&quot;,  &quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/20/wxxcx2/">
+
+
+
+
+
+  <title>微信小程序 | TQFblog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TQFblog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/20/wxxcx2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANQIFENG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TQFblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微信小程序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T23:20:04+08:00">
+                2019-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h1><h3 id="一、小程序起步"><a href="#一、小程序起步" class="headerlink" title="一、小程序起步"></a>一、小程序起步</h3><p>1.微信小程序官网](<a href="https://mp.weixin.qq.com/cgi-bin/wx)注册账号" target="_blank" rel="noopener">https://mp.weixin.qq.com/cgi-bin/wx)注册账号</a></p>
+<p>2.进入官网看文档</p>
+<h2 id="二、微信小程序路由配置"><a href="#二、微信小程序路由配置" class="headerlink" title="二、微信小程序路由配置"></a>二、微信小程序路由配置</h2><ul>
+<li>在<code>pages</code>里面新建pages会在<code>pack.json</code>自动生成路由</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"pages"</span>: [</span><br><span class="line">  <span class="string">"pages/index/index"</span>,</span><br><span class="line">  <span class="string">"pages/logs/logs"</span>,</span><br><span class="line">  <span class="string">"pages/mine/mine"</span>,</span><br><span class="line">  <span class="string">"pages/serach/search"</span>,</span><br><span class="line">  <span class="string">"pages/find/find"</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>tabBar</code>写在window后面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"tabBar"</span>: &#123;</span><br><span class="line">  <span class="string">"selectedColor"</span>: <span class="string">"#666"</span>,	//选中时的样式</span><br><span class="line">  <span class="string">"list"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"pagePath"</span>: <span class="string">"pages/index/index"</span>,</span><br><span class="line">      <span class="string">"text"</span>: <span class="string">"首页"</span>,</span><br><span class="line">      <span class="string">"iconPath"</span>: <span class="string">"./pages/images/首页-未选中.png"</span>,	//字体图标路径</span><br><span class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"./pages/images/首页-选中.png"</span>	//选中时字体图标路径</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"pagePath"</span>: <span class="string">"pages/serach/search"</span>,</span><br><span class="line">      <span class="string">"text"</span>: <span class="string">"发现"</span>,</span><br><span class="line">      <span class="string">"iconPath"</span>: <span class="string">"./pages/images/发现未选中.png"</span>,</span><br><span class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"./pages/images/发现-选中.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"pagePath"</span>: <span class="string">"pages/logs/logs"</span>,</span><br><span class="line">      <span class="string">"text"</span>: <span class="string">"日志"</span>,</span><br><span class="line">      <span class="string">"iconPath"</span>: <span class="string">"./pages/images/日志.png"</span>,</span><br><span class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"./pages/images/日志选中.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"pagePath"</span>: <span class="string">"pages/mine/mine"</span>,</span><br><span class="line">      <span class="string">"text"</span>: <span class="string">"我的"</span>,</span><br><span class="line">      <span class="string">"iconPath"</span>: <span class="string">"./pages/images/我 的.png"</span>,</span><br><span class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"./pages/images/我的选中.png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="三、数据绑定及渲染"><a href="#三、数据绑定及渲染" class="headerlink" title="三、数据绑定及渲染"></a>三、数据绑定及渲染</h2><h4 id="1-渲染用两个-lt-￼20-gt"><a href="#1-渲染用两个-lt-￼20-gt" class="headerlink" title="1.渲染用两个}}"></a>1.渲染用两个<code>{% raw %}}}</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;view&gt; &#123;% raw %&#125; message &#125;&#125; &lt;/view&gt;</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Hello MINA!'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>wx:if</code>用法</li>
+</ul>
+<blockquote>
+<p>备注：这种属性方法的都要用<code>&quot;{% raw %}}}&quot;</code>这种形式，例如，<code>wx:for=&quot;{% raw %}}}&quot;</code>、</p>
+<p><code>wx:if=&quot;{% raw %}}}&quot;</code>、<code>checked=&quot;{% raw %}false}}&quot;</code>，还有三元运算<code>hidden=&quot;{% raw %}flag ? true : false}}&quot;</code></p>
+</blockquote>
+<h4 id="2-列表渲染wx-for"><a href="#2-列表渲染wx-for" class="headerlink" title="2.列表渲染wx:for"></a>2.列表渲染<code>wx:for</code></h4><blockquote>
+<p>在组件上使用 <code>wx:for</code> 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。</p>
+<p>默认数组的当前项的下标变量名默认为 <code>index</code>，数组当前项的变量名默认为 <code>item</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;% raw %&#125;array&#125;&#125;&quot;&gt;</span><br><span class="line">  &#123;% raw %&#125;index&#125;&#125;: &#123;% raw %&#125;item.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="四、做音乐播放器小程序步骤"><a href="#四、做音乐播放器小程序步骤" class="headerlink" title="四、做音乐播放器小程序步骤"></a>四、做音乐播放器小程序步骤</h2><h4 id="1-先创建你需要的页面及路由"><a href="#1-先创建你需要的页面及路由" class="headerlink" title="1.先创建你需要的页面及路由"></a>1.先创建你需要的页面及路由</h4><blockquote>
+<p>例如：先创建一个首页、一个详情页、搜索页</p>
+</blockquote>
+<h4 id="2-引入weui-、search组件、pannel组件"><a href="#2-引入weui-、search组件、pannel组件" class="headerlink" title="2.引入weui 、search组件、pannel组件"></a>2.引入<code>weui</code> 、search组件、pannel组件</h4><h4 id="3-新建components在里面写小组件"><a href="#3-新建components在里面写小组件" class="headerlink" title="3.新建components在里面写小组件"></a>3.新建<code>components</code>在里面写小组件</h4><h4 id="4-在index-js发起ajax请求，利用组件通信传到pannel组件里面"><a href="#4-在index-js发起ajax请求，利用组件通信传到pannel组件里面" class="headerlink" title="4.在index.js发起ajax请求，利用组件通信传到pannel组件里面"></a>4.在index.js发起ajax请求，利用组件通信传到pannel组件里面</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  <span class="symbol">data:</span>&#123;</span><br><span class="line">    <span class="symbol">song_list:</span>[],	<span class="regexp">//</span>定义一个空数组</span><br><span class="line">    <span class="symbol">offset:</span><span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onReady()&#123;</span><br><span class="line">    this.loadMore()</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="symbol">onLoad:</span> function () &#123;</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      <span class="symbol">icon20:</span> base64.icon2<span class="number">0</span>,</span><br><span class="line">      <span class="symbol">icon60:</span> base64.icon6<span class="number">0</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  onPullDownRefresh() &#123;</span><br><span class="line">    this.loadMore()</span><br><span class="line">  &#125;,</span><br><span class="line">  loadMore() &#123;</span><br><span class="line">    var <span class="keyword">self</span> = this;</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      <span class="symbol">url:</span> <span class="string">'https://tingapi.ting.baidu.com/v1/restserver/ting'</span>, <span class="regexp">//</span>仅为示例，并非真实的接口地址</span><br><span class="line">      <span class="symbol">data:</span> &#123;</span><br><span class="line">        <span class="symbol">method:</span> <span class="string">"baidu.ting.billboard.billList"</span>,</span><br><span class="line">        <span class="symbol">type:</span> <span class="number">1</span>,</span><br><span class="line">        <span class="symbol">size:</span> <span class="number">10</span>,</span><br><span class="line">        <span class="symbol">offset:</span> this.data.offset</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="symbol">header:</span> &#123;</span><br><span class="line">        <span class="string">'content-type'</span>: <span class="string">'application/json'</span> /<span class="regexp">/ 默认值</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      success(res) &#123;</span></span><br><span class="line"><span class="regexp">        wx.stopPullDownRefresh()</span></span><br><span class="line"><span class="regexp">        self.setData(&#123;</span></span><br><span class="line"><span class="regexp">          offset:++self.data.offset</span></span><br><span class="line"><span class="regexp">        &#125;)</span></span><br><span class="line"><span class="regexp">        console.log(res.data.song_list)</span></span><br><span class="line"><span class="regexp">   /</span><span class="regexp">/把请求回来的数据合并到空数组，因为是上拉刷新，所以就要用新数组合并旧数据，以达到每次上面都是新的</span></span><br><span class="line"><span class="regexp">        self.setData(&#123;</span></span><br><span class="line"><span class="regexp">          song_list: res.data.song_list.concat(self.data.song_list) </span></span><br><span class="line"><span class="regexp">        &#125;)</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-利用组件通信传数据到子组件"><a href="#5-利用组件通信传数据到子组件" class="headerlink" title="5.利用组件通信传数据到子组件"></a>5.利用组件通信传数据到子组件</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;xpannel songList=<span class="string">"&#123;% raw %&#125;song_list&#125;&#125;"</span>&gt;&lt;<span class="regexp">/xpannel&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-接收父组件传过来的数据"><a href="#6-接收父组件传过来的数据" class="headerlink" title="6.接收父组件传过来的数据"></a>6.接收父组件传过来的数据</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">properties:</span> &#123;</span><br><span class="line">   <span class="symbol">songList:</span> &#123; <span class="regexp">//</span> 属性名</span><br><span class="line">     <span class="symbol">type:</span> Array, <span class="regexp">//</span> 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）</span><br><span class="line">     <span class="symbol">value:</span> <span class="string">''</span>, <span class="regexp">//</span> 属性初始值（可选），如果未指定则会根据类型选择一个</span><br><span class="line">     <span class="symbol">observer:</span> function (newVal, oldVal, changedPath) &#123;</span><br><span class="line">       console.log(newVal)</span><br><span class="line">       this.setData(&#123;</span><br><span class="line">         <span class="symbol">song:</span> newVal	/<span class="regexp">/把接收过来的数组存到本地</span></span><br><span class="line"><span class="regexp">       &#125;)</span></span><br><span class="line"><span class="regexp">       /</span><span class="regexp">/ 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：'_propertyChange'</span></span><br><span class="line"><span class="regexp">       /</span><span class="regexp">/ 通常 newVal 就是新设置的数据， oldVal 是旧数据</span></span><br><span class="line"><span class="regexp">     &#125;</span></span><br><span class="line"><span class="regexp">   &#125;,</span></span><br><span class="line"><span class="regexp"> &#125;,</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-动态渲染接收过来的数据"><a href="#7-动态渲染接收过来的数据" class="headerlink" title="7.动态渲染接收过来的数据"></a>7.动态渲染接收过来的数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=<span class="string">"&#123;% raw %&#125;'/pages/detail/detail?songId='+item.song_id&#125;&#125;"</span> wx:<span class="keyword">for</span>=<span class="string">"&#123;% raw %&#125;song&#125;&#125;"</span> 		class=<span class="string">"weui-media-box weui-media-box_appmsg"</span> hover-class=<span class="string">"weui-cell_active"</span>&gt;</span><br><span class="line">    &lt;view class=<span class="string">"weui-media-box__hd weui-media-box__hd_in-appmsg"</span>&gt;</span><br><span class="line">    &lt;image class=<span class="string">"weui-media-box__thumb"</span> src=<span class="string">"&#123;% raw %&#125;item.pic_big&#125;&#125;"</span> /&gt;</span><br><span class="line">    &lt;/view&gt;</span><br><span class="line">    &lt;view class=<span class="string">"weui-media-box__bd weui-media-box__bd_in-appmsg"</span>&gt;</span><br><span class="line">    &lt;view class=<span class="string">"weui-media-box__title"</span>&gt;&#123;% raw %&#125;item.album_title&#125;&#125;&lt;/view&gt;</span><br><span class="line">    &lt;view class=<span class="string">"weui-media-box__desc"</span>&gt;&#123;% raw %&#125;item.country&#125;&#125;-&#123;% raw %&#125;item.author&#125;&#125;&lt;/view&gt;</span><br><span class="line">    &lt;/view&gt;</span><br><span class="line">&lt;/navigator&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="8-传songid到详情页"><a href="#8-传songid到详情页" class="headerlink" title="8.传songid到详情页"></a>8.传<code>songid</code>到详情页</h4><blockquote>
+<p>传songid到详情页的目的是，让详情页根据你传过来的id发起ajax请求，渲染数据</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=<span class="string">"&#123;% raw %&#125;'/pages/detail/detail?songId='+item.song_id&#125;&#125;"</span> wx:<span class="keyword">for</span>=<span class="string">"&#123;% raw %&#125;song&#125;&#125;"</span> class=<span class="string">"weui-media-box weui-media-box_appmsg"</span> hover-class=<span class="string">"weui-cell_active"</span>&gt;</span><br><span class="line"></span><br><span class="line">备注：通过拼接字符串的形式传送 url=<span class="string">"&#123;% raw %&#125;'/pages/detail/detail?songId='+item.song_id&#125;&#125;"</span></span><br></pre></td></tr></table></figure>
+<h4 id="9-接收传过来的id-设置给本地变量"><a href="#9-接收传过来的id-设置给本地变量" class="headerlink" title="9.接收传过来的id,设置给本地变量"></a>9.接收传过来的<code>id</code>,设置给本地变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  onLoad: <span class="keyword">function</span> (options) &#123;</span><br><span class="line">    // console.log(options.songId)</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      songId: options.songId</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    this.getSong();</span><br><span class="line">    this.getlrc()</span><br><span class="line">    console.log(this.data.songId)</span><br><span class="line">  &#125;</span><br><span class="line">备注：`options`为形参，好比vue和react中的`props`</span><br></pre></td></tr></table></figure>
+<h4 id="10-在详情页引入audio组件"><a href="#10-在详情页引入audio组件" class="headerlink" title="10.在详情页引入audio组件"></a>10.在详情页引入<code>audio</code>组件</h4><ul>
+<li>html页面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- audio.wxml --&gt;</span><br><span class="line">&lt;audio poster=<span class="string">"&#123;% raw %&#125;poster&#125;&#125;"</span> name=<span class="string">"&#123;% raw %&#125;name&#125;&#125;"</span> author=<span class="string">"&#123;% raw %&#125;author&#125;&#125;"</span> src=<span class="string">"&#123;% raw %&#125;src&#125;&#125;"</span> id=<span class="string">"myAudio"</span> controls loop&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line">&lt;button <span class="built_in">type</span>=<span class="string">"primary"</span> bindtap=<span class="string">"audioPlay"</span>&gt;播放&lt;/button&gt;</span><br><span class="line">&lt;button <span class="built_in">type</span>=<span class="string">"primary"</span> bindtap=<span class="string">"audioPause"</span>&gt;暂停&lt;/button&gt;</span><br><span class="line">&lt;button <span class="built_in">type</span>=<span class="string">"primary"</span> bindtap=<span class="string">"audio14"</span>&gt;设置当前播放时间为14秒&lt;/button&gt;</span><br><span class="line">&lt;button <span class="built_in">type</span>=<span class="string">"primary"</span> bindtap=<span class="string">"audioStart"</span>&gt;回到开头&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>js页面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// audio.js</span><br><span class="line">Page(&#123;</span><br><span class="line">  onReady: <span class="keyword">function</span> (e) &#123;</span><br><span class="line">    // 使用 wx.createAudioContext 获取 audio 上下文 context</span><br><span class="line">    this.audioCtx = wx.createAudioContext(<span class="string">'myAudio'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    poster: <span class="string">'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'</span>,</span><br><span class="line">    name: <span class="string">'此时此刻'</span>,</span><br><span class="line">    author: <span class="string">'许巍'</span>,</span><br><span class="line">    src: <span class="string">'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&amp;uin=346897220&amp;vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&amp;fromtag=46'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  audioPlay: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    this.audioCtx.play()</span><br><span class="line">  &#125;,</span><br><span class="line">  audioPause: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    this.audioCtx.pause()</span><br><span class="line">  &#125;,</span><br><span class="line">  audio14: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    this.audioCtx.seek(14)</span><br><span class="line">  &#125;,</span><br><span class="line">  audioStart: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    this.audioCtx.seek(0)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="11-把引入的audio参数全变成变量"><a href="#11-把引入的audio参数全变成变量" class="headerlink" title="11.把引入的audio参数全变成变量"></a>11.把引入的<code>audio</code>参数全变成变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  songId:<span class="string">""</span>,</span><br><span class="line">  poster: <span class="string">''</span>,</span><br><span class="line">  name: <span class="string">''</span>,</span><br><span class="line">  author: <span class="string">''</span>,</span><br><span class="line">  src: <span class="string">''</span>,</span><br><span class="line">  lrc:<span class="string">""</span>,</span><br><span class="line">  time:0</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="12-发起ajax请求把请求回来的数据赋给data里面的变量"><a href="#12-发起ajax请求把请求回来的数据赋给data里面的变量" class="headerlink" title="12.发起ajax请求把请求回来的数据赋给data里面的变量"></a>12.发起ajax请求把请求回来的数据赋给data里面的变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getSong</span></span>() &#123;</span><br><span class="line">   var self = this;</span><br><span class="line">   wx.request(&#123;</span><br><span class="line">     url: <span class="string">'https://tingapi.ting.baidu.com/v1/restserver/ting'</span>, //仅为示例，并非真实的接口地址</span><br><span class="line">     data: &#123;</span><br><span class="line">       method:<span class="string">"baidu.ting.song.play"</span>,</span><br><span class="line">       songid:this.data.songId</span><br><span class="line">     &#125;,</span><br><span class="line">     header: &#123;</span><br><span class="line">       <span class="string">'content-type'</span>: <span class="string">'application/json'</span> // 默认值</span><br><span class="line">     &#125;,</span><br><span class="line">     success(res) &#123;</span><br><span class="line">     console.log(res.data)</span><br><span class="line">     self.setData(&#123;</span><br><span class="line">       poster: res.data.songinfo.pic_big,</span><br><span class="line">       name: res.data.songinfo.title,</span><br><span class="line">       author: res.data.songinfo.author,</span><br><span class="line">       src: res.data.bitrate.file_link</span><br><span class="line">     &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> 备注：此时就可以播放歌曲了</span><br></pre></td></tr></table></figure>
+<h4 id="13-歌词处理"><a href="#13-歌词处理" class="headerlink" title="13.歌词处理"></a>13.歌词处理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getlrc</span></span>() &#123;</span><br><span class="line">   var self = this;</span><br><span class="line">   wx.request(&#123;</span><br><span class="line">     url: <span class="string">'https://tingapi.ting.baidu.com/v1/restserver/ting'</span>, //仅为示例，并非真实的接口地址</span><br><span class="line">     data: &#123;</span><br><span class="line">       method:<span class="string">"baidu.ting.song.lry"</span>,</span><br><span class="line">       songid:this.data.songId</span><br><span class="line">     &#125;,</span><br><span class="line">     header: &#123;</span><br><span class="line">       <span class="string">'content-type'</span>: <span class="string">'application/json'</span> // 默认值</span><br><span class="line">     &#125;,</span><br><span class="line">     success(res) &#123;</span><br><span class="line">       // console.log(res.data)</span><br><span class="line">       <span class="built_in">let</span> obj = self.parseLyric(res.data.lrcContent)	//执行函数拿到歌词</span><br><span class="line">       console.log(obj)</span><br><span class="line">       self.setData(&#123;</span><br><span class="line">         lrc: obj</span><br><span class="line">       &#125;)</span><br><span class="line">     </span><br><span class="line">  </span><br><span class="line">     &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;,</span><br><span class="line"> //把歌词处理成一段一段的</span><br><span class="line"> parseLyric(lrc) &#123;</span><br><span class="line">   var lyrics = lrc.split(<span class="string">"\n"</span>);</span><br><span class="line">   var lrcObj = &#123;&#125;;</span><br><span class="line">   <span class="keyword">for</span> (var i = 0; i &lt; lyrics.length; i++) &#123;</span><br><span class="line">     var lyric = decodeURIComponent(lyrics[i]);</span><br><span class="line">     var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;</span><br><span class="line">     var timeRegExpArr = lyric.match(timeReg);</span><br><span class="line">     <span class="keyword">if</span> (!timeRegExpArr) <span class="built_in">continue</span>;</span><br><span class="line">     var clause = lyric.replace(timeReg, <span class="string">''</span>);</span><br><span class="line">     <span class="keyword">for</span> (var k = 0, h = timeRegExpArr.length; k &lt; h; k++) &#123;</span><br><span class="line">       var t = timeRegExpArr[k];</span><br><span class="line">       var min = Number(String(t.match(/\[\d*/i)).slice(1)),</span><br><span class="line">         sec = Number(String(t.match(/\:\d*/i)).slice(1));</span><br><span class="line">       var time = min * 60 + sec;</span><br><span class="line">       lrcObj[time] = clause;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">return</span> lrcObj;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="14-渲染歌词"><a href="#14-渲染歌词" class="headerlink" title="14.渲染歌词"></a>14.渲染歌词</h4><blockquote>
+<p>你可以在本地设置个时间为time:0,然后再设置个定时器，让time每秒+1，根据time渲染歌词</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   data: &#123;</span><br><span class="line">    songId:<span class="string">""</span>,</span><br><span class="line">    poster: <span class="string">''</span>,</span><br><span class="line">    name: <span class="string">''</span>,</span><br><span class="line">    author: <span class="string">''</span>,</span><br><span class="line">    src: <span class="string">''</span>,</span><br><span class="line">    lrc:<span class="string">""</span>,</span><br><span class="line">    time:0	//设置tiem</span><br><span class="line">  &#125;,</span><br><span class="line">  ======================</span><br><span class="line">  audioPlay: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    this.audioCtx.play();</span><br><span class="line">    timer=setInterval(() =&gt; &#123;</span><br><span class="line">      this.setData(&#123;</span><br><span class="line">        time: ++this.data.time</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,1000)</span><br><span class="line">  &#125;,</span><br><span class="line">  //按暂停时清除定时器	</span><br><span class="line">    audioPause: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    this.audioCtx.pause();</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  //渲染歌词</span><br><span class="line">&lt;text&gt;&#123;% raw %&#125;lrc[time]&#125;&#125;&lt;/text&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="15-搜索歌曲做法"><a href="#15-搜索歌曲做法" class="headerlink" title="15.搜索歌曲做法"></a>15.搜索歌曲做法</h4><blockquote>
+<p>1.serach组件复用<code>&lt;xsearchBar status=&quot;find&quot;&gt;&lt;/xsearchBar&gt;</code></p>
+<p>2.接收search<code>status</code></p>
+</blockquote>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="symbol">properties:</span> &#123;</span><br><span class="line">    <span class="symbol">status:</span> String /<span class="regexp">/ 简化的定义方式</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">===============================</span></span><br><span class="line"><span class="regexp">  ready() &#123;</span></span><br><span class="line"><span class="regexp">    console.log(this.data.inputVal)</span></span><br><span class="line"><span class="regexp">    if (this.data.status == "find") &#123;</span></span><br><span class="line"><span class="regexp">      this.setData(&#123;</span></span><br><span class="line"><span class="regexp">        inputShowed: true	/</span><span class="regexp">/显示取消和输入光标</span></span><br><span class="line"><span class="regexp">      &#125;);</span></span><br><span class="line"><span class="regexp">    &#125; else &#123;</span></span><br><span class="line"><span class="regexp">      this.setData(&#123;</span></span><br><span class="line"><span class="regexp">        inputShowed: false</span></span><br><span class="line"><span class="regexp">      &#125;);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3.点击取消回到首页</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">showInput: function () &#123;</span><br><span class="line">     wx.navigateTo(&#123;</span><br><span class="line">       url: &quot;/pages/find/find&quot;</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>4.输入文字发起ajax请求</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">   inputShowed: <span class="literal">false</span>,</span><br><span class="line">   inputVal: <span class="string">""</span>,</span><br><span class="line">   renderSong:[]</span><br><span class="line"> &#125;,</span><br><span class="line">   ===================================</span><br><span class="line">   inputTyping: <span class="keyword">function</span> (e) &#123;</span><br><span class="line">     this.searchSong(e.detail.value)	//执行搜索歌曲函数，传入输入框的`value`</span><br><span class="line">     this.setData(&#123;</span><br><span class="line">       inputVal: e.detail.value</span><br><span class="line">     &#125;);</span><br><span class="line">     </span><br><span class="line">     console.log(this.data.inputVal)</span><br><span class="line">   &#125;,</span><br><span class="line">  ===========================================</span><br><span class="line">  searchSong(keyword) &#123;</span><br><span class="line">     var self = this;</span><br><span class="line">     wx.request(&#123;</span><br><span class="line">       url: <span class="string">'https://tingapi.ting.baidu.com/v1/restserver/ting'</span>, //仅为示例，并非真实的接口地址</span><br><span class="line">       data: &#123;</span><br><span class="line">         method: <span class="string">"baidu.ting.search.catalogSug"</span>,</span><br><span class="line">         query: keyword</span><br><span class="line">       &#125;,</span><br><span class="line">       header: &#123;</span><br><span class="line">         <span class="string">'content-type'</span>: <span class="string">'application/json'</span> // 默认值</span><br><span class="line">       &#125;,</span><br><span class="line">       success(res) &#123;</span><br><span class="line">         console.log(res.data)</span><br><span class="line">         self.setData(&#123;</span><br><span class="line">           renderSong: res.data.song ? res.data.song:<span class="string">""</span>	//把得到的数据赋给本地变量</span><br><span class="line">         &#125;)</span><br><span class="line">         </span><br><span class="line">         console.log(self.renderSong)</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="16-点击的时候把数据传到详情页"><a href="#16-点击的时候把数据传到详情页" class="headerlink" title="16.点击的时候把数据传到详情页"></a>16.点击的时候把数据传到详情页</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=<span class="string">"&#123;% raw %&#125;'/pages/detail/detail?songId='+item.songid&#125;&#125;"</span> class=<span class="string">"weui-cell"</span> wx:<span class="keyword">for</span>=<span class="string">"&#123;% raw %&#125;renderSong&#125;&#125;"</span> hover-class=<span class="string">"weui-cell_active"</span>&gt;</span><br><span class="line">                &lt;view class=<span class="string">"weui-cell__bd"</span>&gt;</span><br><span class="line">                    &lt;view&gt;&#123;% raw %&#125;item.artistname&#125;&#125;-&#123;% raw %&#125;item.songname&#125;&#125;&lt;/view&gt;</span><br><span class="line">                &lt;/view&gt;</span><br><span class="line"> &lt;/navigator&gt;</span><br><span class="line"> 备注：传songid到详情页 url=<span class="string">"&#123;% raw %&#125;'/pages/detail/detail?songId='+item.songid&#125;&#125;"</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+            <a href="/tags/javascropt/" rel="tag"># javascropt</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/20/wxxcx/" rel="next" title="微信小程序">
+                <i class="fa fa-chevron-left"></i> 微信小程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TANQIFENG">
+            
+              <p class="site-author-name" itemprop="name">TANQIFENG</p>
+              <p class="site-description motion-element" itemprop="description">宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小程序"><span class="nav-number">1.</span> <span class="nav-text">小程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、小程序起步"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、小程序起步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、微信小程序路由配置"><span class="nav-number">1.1.</span> <span class="nav-text">二、微信小程序路由配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、数据绑定及渲染"><span class="nav-number">1.2.</span> <span class="nav-text">三、数据绑定及渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-渲染用两个-lt-￼20-gt"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1.渲染用两个{% raw %}}}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-列表渲染wx-for"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2.列表渲染wx:for</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#四、做音乐播放器小程序步骤"><span class="nav-number">1.3.</span> <span class="nav-text">四、做音乐播放器小程序步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-先创建你需要的页面及路由"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.先创建你需要的页面及路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-引入weui-、search组件、pannel组件"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2.引入weui 、search组件、pannel组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-新建components在里面写小组件"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">3.新建components在里面写小组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-在index-js发起ajax请求，利用组件通信传到pannel组件里面"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">4.在index.js发起ajax请求，利用组件通信传到pannel组件里面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-利用组件通信传数据到子组件"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">5.利用组件通信传数据到子组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-接收父组件传过来的数据"><span class="nav-number">1.3.0.6.</span> <span class="nav-text">6.接收父组件传过来的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-动态渲染接收过来的数据"><span class="nav-number">1.3.0.7.</span> <span class="nav-text">7.动态渲染接收过来的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-传songid到详情页"><span class="nav-number">1.3.0.8.</span> <span class="nav-text">8.传songid到详情页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-接收传过来的id-设置给本地变量"><span class="nav-number">1.3.0.9.</span> <span class="nav-text">9.接收传过来的id,设置给本地变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-在详情页引入audio组件"><span class="nav-number">1.3.0.10.</span> <span class="nav-text">10.在详情页引入audio组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-把引入的audio参数全变成变量"><span class="nav-number">1.3.0.11.</span> <span class="nav-text">11.把引入的audio参数全变成变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-发起ajax请求把请求回来的数据赋给data里面的变量"><span class="nav-number">1.3.0.12.</span> <span class="nav-text">12.发起ajax请求把请求回来的数据赋给data里面的变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-歌词处理"><span class="nav-number">1.3.0.13.</span> <span class="nav-text">13.歌词处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-渲染歌词"><span class="nav-number">1.3.0.14.</span> <span class="nav-text">14.渲染歌词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-搜索歌曲做法"><span class="nav-number">1.3.0.15.</span> <span class="nav-text">15.搜索歌曲做法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-点击的时候把数据传到详情页"><span class="nav-number">1.3.0.16.</span> <span class="nav-text">16.点击的时候把数据传到详情页</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TANQIFENG</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
