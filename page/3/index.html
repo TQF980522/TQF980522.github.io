@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascropt,小程序,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,16 @@
 
 
 
-<meta name="description" content="学习小程序和php的杂项 上拉加载wxml：  &amp;lt;view class=&amp;quot;weui-loadmore&amp;quot; wx:if=&amp;quot;{{!isHideLoadMore}}&amp;quot;&amp;gt; &amp;lt;view class=&amp;quot;weui-loading&amp;quot;&amp;gt;&amp;lt;/view&amp;gt; &amp;lt;view class=&amp;quot;weui-loadmore__">
-<meta name="keywords" content="javascropt,小程序">
-<meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序 Thinkphp5">
-<meta property="og:url" content="http://yoursite.com/2019/05/19/xcx/index.html">
+<meta name="description" content="宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="I`M Blog">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="I`M Blog">
-<meta property="og:description" content="学习小程序和php的杂项 上拉加载wxml：  &amp;lt;view class=&amp;quot;weui-loadmore&amp;quot; wx:if=&amp;quot;{{!isHideLoadMore}}&amp;quot;&amp;gt; &amp;lt;view class=&amp;quot;weui-loading&amp;quot;&amp;gt;&amp;lt;/view&amp;gt; &amp;lt;view class=&amp;quot;weui-loadmore__">
+<meta property="og:description" content="宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-21T11:39:14.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序 Thinkphp5">
-<meta name="twitter:description" content="学习小程序和php的杂项 上拉加载wxml：  &amp;lt;view class=&amp;quot;weui-loadmore&amp;quot; wx:if=&amp;quot;{{!isHideLoadMore}}&amp;quot;&amp;gt; &amp;lt;view class=&amp;quot;weui-loading&amp;quot;&amp;gt;&amp;lt;/view&amp;gt; &amp;lt;view class=&amp;quot;weui-loadmore__">
+<meta name="twitter:title" content="I`M Blog">
+<meta name="twitter:description" content="宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。">
 
 
 
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/19/xcx/">
+  <link rel="canonical" href="http://yoursite.com/page/3/">
 
 
 
 
 
-  <title>微信小程序 Thinkphp5 | I`M Blog</title>
+  <title>I`M Blog</title>
   
 
 
@@ -145,7 +143,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,9 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -260,7 +259,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微信小程序 Thinkphp5</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/19/xcx/" itemprop="url">微信小程序 Thinkphp5</a></h1>
         
 
         <div class="post-meta">
@@ -332,140 +333,21 @@
       
 
       
-        <h1 id="学习小程序和php的杂项"><a href="#学习小程序和php的杂项" class="headerlink" title="学习小程序和php的杂项"></a>学习小程序和php的杂项</h1><hr>
-<p><strong>上拉加载</strong><br>wxml：</p>
-<pre><code> &lt;view class=&quot;weui-loadmore&quot; wx:if=&quot;{{!isHideLoadMore}}&quot;&gt;
-&lt;view class=&quot;weui-loading&quot;&gt;&lt;/view&gt;
-&lt;view class=&quot;weui-loadmore__tips&quot;&gt;正在加载&lt;/view&gt;
- &lt;/view&gt;
- &lt;view class=&quot;weui-loadmore&quot; wx:if=&quot;{{isHideLoadMore}}&quot;&gt;
- &lt;view class=&quot;weui-loadmore__tips&quot;&gt;到底了&lt;/view&gt;
-&lt;/view&gt;
-</code></pre><p>js </p>
-<pre><code>data: {
-      URL: App.api_url,
-      sinput: &apos;&apos;,
-      page: 0,
-      goodsList: [],
-      isHideLoadMore: false,
-  },
-   onLoad: function(options) {
-      let _this = this;
-      // console.log(options.sinput)
-      _this.setData({
-        sinput: options.sinput
-      });
-      let sinput = _this.data.sinput;
-      _this.queryDemand(sinput).then((data) =&gt; {
-        wx.hideLoading();
-        _this.setData({
-          isHideLoadMore: true,
-          goodsList: data
-        })
-      });
-    },
-
-    searchInput: function(e) {
-      let _this = this;
-      let sinput = e.detail.value;
-      _this.setData({
-        sinput: sinput
-      })
-    },
-    // 搜索
-    search: function() {
-      let _this = this;
-      let sinput = _this.data.sinput;
-      console.log(sinput);
-      //重新把page设置为0 搜索别的
-      _this.setData({
-        page: 0,
-      })
-
-      _this.queryDemand(sinput).then((data) =&gt; {
-        _this.setData({
-          isHideLoadMore: true,
-          goodsList: data,
-        })
-
-      });
-    },
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-      let _this = this;
-      // wx.showLoading({
-      //   title: &apos;玩命加载中&apos;,
-      // })
-
-      // 经过onload 状态改变为了true
-      let sinput = _this.data.sinput;
-      _this.setData({
-        isHideLoadMore: false,
-      });
-      //上拉的时候先置为flase 在加载的时候显示转圈  完成加载判断有无数据 没有设为true
-      _this.queryDemand(sinput).then((data) =&gt; {
-        let goodsList = _this.data.goodsList;
-        _this.setData({
-          goodsList: goodsList.concat(data),
-        })
-        if (data == &apos;&apos;) {
-          _this.setData({
-            isHideLoadMore: true,
-          })
-        }
-      });
-        //查询请求
-    queryDemand: function(sinput) {
-      let _this = this;
-      return new Promise((resolve, reject) =&gt; {
-        App._get(&apos;goods_deals/goods_serach&apos;, {
-          sinput: sinput,
-          page: ++_this.data.page
-        }, function(result) {
-          console.log(result)
-          resolve(result)
-        })
-      })
-    },
-</code></pre><p>后端PHP：</p>
-<pre><code>function goods_serach(){
-    $get = $this-&gt;request-&gt;get();
-    $page =intval( $get[&apos;page&apos;]);
-    $query = $get[&apos;sinput&apos;];
-    // var_dump($query);exit;
-    $where[&apos;goods_name&apos;] = [&apos;like&apos;,&apos;%&apos;.$query.&apos;%&apos;];
-    $where[&apos;status&apos;] = [&apos;eq&apos;,1];
-    $goods = getGoodsListModel::where($where)-&gt;page($page,Config::get(&apos;paging&apos;))-&gt;select();
-    // Config::get(&apos;paging&apos;) 获取公共配置设置的分页数  $page 是取得前端传过来的当前页数 
-    return json_encode($goods);
-}
-</code></pre><p><strong>小程序取值</strong><br>    <em>首先在wxml里面取得循环出来的每个item的id，如下</em></p>
-<pre><code>&lt;view class=&quot;select-small&quot; wx:for=&quot;{{goodsList}}&quot; wx:key bindtap=&apos;goodsNext&apos; data-goodsid=&apos;{{item.id}}&apos;&gt;
-</code></pre><p>然后在js面取值</p>
-<pre><code>//商品跳转
-goodsNext: function(e) {
-  let goods_id = e.currentTarget.dataset.goodsid;
-  wx.navigateTo({
-    url: &apos;/pages/goods/goods?goods_id=&apos; + goods_id,
-  })
-},
-</code></pre><p>这样就取到商品的id，就可以带着id跳转了。</p>
-<h4 id="微信小程序跳转传参"><a href="#微信小程序跳转传参" class="headerlink" title="微信小程序跳转传参"></a>微信小程序跳转传参</h4><p><em>一般都是传字符串到下一页，如果要想传对象怎么办呢？ 解决办法是先将对象转换为json字符串然后到下个页面将json字符串，再转化为对象。如下：</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let str=JSON.stringify(e.currentTarget.dataset.item);</span><br><span class="line">wx.navigateTo(&#123;</span><br><span class="line">  url: &apos;/跳转路径/?jsonStr=&apos;+str,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>另一个页面加载</p>
-<blockquote>
-<p><code>let str=JSON.stringify(e.currentTarget.dataset.item);</code></p>
-<p><code>wx.navigateTo({</code></p>
-<p><code>url: &#39;/跳转路径/?jsonStr=&#39;+str,</code></p>
-<p><code>})</code></p>
-</blockquote>
-<p>####插播一段css属性</p>
-<p><code>1，box-sizing: border-box;</code> 规定两个并排的带边框的框 border-box 为元素设定的宽度和高度决定了元素的边框盒。 就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。</p>
-<p><code>2，border-right: 1rpx solid #d9d9d9;</code> /<em>右边框样式：厚度，实线，颜色</em>/</p>
-<p><code>3，flex-flow</code>属性是flex-direction属性和flex-wrap属性的简写形式，默认值为<code>row nowrap</code>。</p>
-
+        
+          
+          学习小程序和php的杂项
+上拉加载wxml：
+ &lt;view class=&quot;weui-loadmore&quot; wx:if=&quot;{{!isHideLoadMore}}&quot;&gt;
+&lt;view class=&quot;weui-loading&quot;&gt;
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/19/xcx/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -480,42 +362,14 @@ goodsNext: function(e) {
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/javascropt/" rel="tag"># javascropt</a>
-          
-            <a href="/tags/小程序/" rel="tag"># 小程序</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/05/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/19/Jq-note/" rel="prev" title="Jq-note">
-                Jq-note <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -525,11 +379,140 @@ goodsNext: function(e) {
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANQIFENG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I`M Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/19/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T14:38:17+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/19/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -537,10 +520,6 @@ goodsNext: function(e) {
 
 
           
-
-  
-
-
 
         </div>
         
@@ -561,17 +540,8 @@ goodsNext: function(e) {
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -633,22 +603,6 @@ goodsNext: function(e) {
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#学习小程序和php的杂项"><span class="nav-number">1.</span> <span class="nav-text">学习小程序和php的杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#微信小程序跳转传参"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">微信小程序跳转传参</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -796,10 +750,6 @@ goodsNext: function(e) {
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

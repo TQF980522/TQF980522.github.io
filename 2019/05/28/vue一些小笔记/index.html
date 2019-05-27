@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,javascropt,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vue 笔记一，路由带参数跳转vue中路由跳转传参数有多种,自己常用的是下面的几种  通过router-link进行跳转  通过编程导航进行路由跳转     router-link12345678910111213141516171819&amp;lt;router-link     :to=&amp;quot;&amp;#123;        path: &amp;apos;yourPath&amp;apos;,         p">
+<meta name="keywords" content="vue,javascropt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue一些小笔记">
+<meta property="og:url" content="http://yoursite.com/2019/05/28/vue一些小笔记/index.html">
+<meta property="og:site_name" content="I`M Blog">
+<meta property="og:description" content="vue 笔记一，路由带参数跳转vue中路由跳转传参数有多种,自己常用的是下面的几种  通过router-link进行跳转  通过编程导航进行路由跳转     router-link12345678910111213141516171819&amp;lt;router-link     :to=&amp;quot;&amp;#123;        path: &amp;apos;yourPath&amp;apos;,         p">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-27T16:36:55.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue一些小笔记">
+<meta name="twitter:description" content="vue 笔记一，路由带参数跳转vue中路由跳转传参数有多种,自己常用的是下面的几种  通过router-link进行跳转  通过编程导航进行路由跳转     router-link12345678910111213141516171819&amp;lt;router-link     :to=&amp;quot;&amp;#123;        path: &amp;apos;yourPath&amp;apos;,         p">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/28/vue一些小笔记/">
+
+
+
+
+
+  <title>vue一些小笔记 | I`M Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I`M Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/vue一些小笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANQIFENG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I`M Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue一些小笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T00:36:34+08:00">
+                2019-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vue-笔记"><a href="#vue-笔记" class="headerlink" title="vue 笔记"></a>vue 笔记</h1><h3 id="一，路由带参数跳转"><a href="#一，路由带参数跳转" class="headerlink" title="一，路由带参数跳转"></a>一，路由带参数跳转</h3><p>vue中路由跳转传参数有多种,自己常用的是下面的几种</p>
+<ul>
+<li><p>通过<code>router-link</code>进行跳转</p>
+</li>
+<li><p>通过编程导航进行路由跳转 </p>
+</li>
+</ul>
+<ol>
+<li><h5 id="router-link"><a href="#router-link" class="headerlink" title="router-link"></a>router-link</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link </span><br><span class="line">    :to=&quot;&#123;</span><br><span class="line">        path: &apos;yourPath&apos;, </span><br><span class="line">        params: &#123; </span><br><span class="line">            name: &apos;name&apos;, </span><br><span class="line">            dataObj: data</span><br><span class="line">        &#125;,</span><br><span class="line">        query: &#123;</span><br><span class="line">            name: &apos;name&apos;, </span><br><span class="line">            dataObj: data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&quot;&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line"> 1. path -&gt; 是要跳转的路由路径,也可以是路由文件里面配置的 name 值,两者都可以进行路由导航</span><br><span class="line"> 2. params -&gt; 是要传送的参数,参数可以直接key:value形式传递</span><br><span class="line"> 3. query -&gt; 是通过 url 来传递参数的同样是key:value形式传递</span><br><span class="line"></span><br><span class="line"> // 2,3两点皆可传递</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="router方式跳转-编程式导航跳转"><a href="#router方式跳转-编程式导航跳转" class="headerlink" title="$router方式跳转(编程式导航跳转)"></a>$router方式跳转(编程式导航跳转)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 组件 a</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;button @click=&quot;sendParams&quot;&gt;传递&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &apos;&apos;,</span><br><span class="line">    data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        msg: &apos;test message&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      sendParams () &#123;</span><br><span class="line">        this.$router.push(&#123;</span><br><span class="line">            path: &apos;yourPath&apos;, </span><br><span class="line">            name: &apos;要跳转的路径的 name,在 router 文件夹下的 index.js 文件内找&apos;,</span><br><span class="line">            params: &#123; </span><br><span class="line">                name: &apos;name&apos;, </span><br><span class="line">                dataObj: this.msg</span><br><span class="line">            &#125;</span><br><span class="line">            /*query: &#123;</span><br><span class="line">                name: &apos;name&apos;, </span><br><span class="line">                dataObj: this.msg</span><br><span class="line">            &#125;*/</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    mounted () &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 组件b</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;h3&gt;msg&lt;/h3&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &apos;&apos;,</span><br><span class="line">    data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        msg: &apos;&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      getParams () &#123;</span><br><span class="line">        // 取到路由带过来的参数 </span><br><span class="line">        let routerParams = this.$route.params.dataobj</span><br><span class="line">        // 将数据放在当前组件的数据内</span><br><span class="line">        this.msg = routerParams</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">    // 监测路由变化,只要变化了就调用获取路由参数方法将数据存储本组件即可</span><br><span class="line">      &apos;$route&apos;: &apos;getParams&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="VUE-使用AXIOS-异步"><a href="#VUE-使用AXIOS-异步" class="headerlink" title="VUE 使用AXIOS 异步"></a>VUE 使用AXIOS 异步</h2><p>安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install axios</span><br></pre></td></tr></table></figure>
+<p><strong>安装其他插件的时候，可以直接在 main.js 中引入并使用 Vue.use()来注册，但是 axios并不是vue插件，所以不能 使用Vue.use()，所以只能在每个需要发送请求的组件中即时引入。</strong></p>
+<p><strong>为了解决这个问题，我们在引入 axios 之后，通过修改原型链，把axios挂载到vue的原型链上，来更方便的使用。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在main.js中挂载</span><br><span class="line"></span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">Vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>
+<h4 id="1，执行-GET-请求："><a href="#1，执行-GET-请求：" class="headerlink" title="1，执行 GET 请求："></a>1，执行 GET 请求：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 向具有指定ID的用户发出请求</span><br><span class="line">$http.get(&apos;/user?ID=12345&apos;)</span><br><span class="line">  .then(function (response) &#123;</span><br><span class="line">    console.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(function (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">  &#125;);</span><br><span class="line">// 也可以通过 params 对象传递参数</span><br><span class="line">$http.get(&apos;/user&apos;, &#123;</span><br><span class="line">    params: &#123;</span><br><span class="line">      ID: 12345</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(function (response) &#123;</span><br><span class="line">    console.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(function (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="2，执行-POST请求："><a href="#2，执行-POST请求：" class="headerlink" title="2，执行 POST请求："></a>2，执行 POST请求：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$http.post(&apos;/user&apos;, &#123;</span><br><span class="line">    firstName: &apos;Fred&apos;,</span><br><span class="line">    lastName: &apos;Flintstone&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(function (response) &#123;</span><br><span class="line">    console.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(function (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="3，执行多个并发请求："><a href="#3，执行多个并发请求：" class="headerlink" title="3，执行多个并发请求："></a>3，执行多个并发请求：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function getUserAccount() &#123;</span><br><span class="line">  return $http.get(&apos;/user/12345&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function getUserPermissions() &#123;</span><br><span class="line">  return $http.get(&apos;/user/12345/permissions&apos;);</span><br><span class="line">&#125;</span><br><span class="line">axios.all([getUserAccount(), getUserPermissions()])</span><br><span class="line">  .then($http.spread(function (acct, perms) &#123;</span><br><span class="line">    //两个请求现已完成</span><br><span class="line">  &#125;));</span><br></pre></td></tr></table></figure>
+<h3 id="4，axios-API"><a href="#4，axios-API" class="headerlink" title="4，axios API"></a>4，axios API</h3><p>可以通过将相关配置传递给 axios 来进行请求。</p>
+<ol>
+<li><strong>axios(config)</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 发送一个 POST 请求</span><br><span class="line">axios(&#123;</span><br><span class="line">  method: &apos;post&apos;,</span><br><span class="line">  url: &apos;/user/12345&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: &apos;Fred&apos;,</span><br><span class="line">    lastName: &apos;Flintstone&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>2. **axios(url[, config])**
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 发送一个 GET 请求 (GET请求是默认请求模式)</span><br><span class="line">axios(&apos;/user/12345&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="请求方法别名"><a href="#请求方法别名" class="headerlink" title="请求方法别名"></a>请求方法别名</h3><p>为了方便起见，已经为所有支持的请求方法提供了别名。</p>
+<ul>
+<li>axios.request（config）</li>
+<li>axios.get（url [，config]）</li>
+<li>axios.delete（url [，config]）</li>
+<li>axios.head（url [，config]）</li>
+<li>axios.post（url [，data [，config]]）</li>
+<li>axios.put（url [，data [，config]]）</li>
+<li>axios.patch（url [，data [，config]]）</li>
+</ul>
+<p><strong>注意</strong><br>当使用别名方法时，不需要在config中指定url，method和data属性。</p>
+<h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><p>帮助函数处理并发请求。</p>
+<ul>
+<li>axios.all（iterable）</li>
+<li>axios.spread（callback）</li>
+</ul>
+<h1 id="Vue中的组件通信"><a href="#Vue中的组件通信" class="headerlink" title="* Vue中的组件通信"></a>* Vue中的组件通信</h1><ul>
+<li><p><strong>父组件传值给子组件</strong></p>
+<p><code>父组件给子组件传值，使用props</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//父组件：parent.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;child :vals = &quot;msg&quot;&gt;&lt;/child&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &quot;./child&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg:&quot;我是父组件的数据，将传给子组件&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        child</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//子组件：child.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &#123;&#123;vals&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">      props:&#123; //父组件传值 可以是一个数组，对象</span><br><span class="line">        vals:&#123;</span><br><span class="line">            type:String,//类型为字符窜</span><br><span class="line">          default:&quot;123&quot; //可以设置默认值</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="子组件到父组件的通信"><a href="#子组件到父组件的通信" class="headerlink" title="子组件到父组件的通信"></a><strong>子组件到父组件的通信</strong></h3><p><code>使用 $emit(eventname,option) 触发事件,</code></p>
+<p>参数一：自定义事件名称，写法,小写或者用-连接，如event,event-name 不能写驼峰写法(eventName)</p>
+<p>子组件给父组件传值，可以在子组件中使用$emit触发事件的值传出去,父组件通过事件监听，获取数据</p>
+<p>但是，这里有一个问题，</p>
+<p>1、究竟是由子组件内部主动传数据给父组件，由父组件监听接收（由子组件中操作决定什么时候传值）</p>
+<p>2、还是通过父组件决定子组件什么时候传值给父组件，然后再监听接收 （由父组件中操作决定什么时候传值）</p>
+<p>两种情况都有</p>
+<p>2.1 : $emit事件触发,通过子组件内部的事件触发自定义事件$emit</p>
+<p>2.2 : $emit事件触发， 可以通过父组件操作子组件 (ref)的事件来触发 自定义事件$emit</p>
+</li>
+</ul>
+<p>第一种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">//父组件：parent.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;child  v-on:childevent=&apos;wathChildEvent&apos;&gt;&lt;/child&gt;</span><br><span class="line">        &lt;div&gt;子组件的数据为：&#123;&#123;msg&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &quot;./child&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            msg:&quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        child</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        wathChildEvent:function(vals)&#123;//直接监听 又子组件触发的事件，参数为子组件的传来的数据</span><br><span class="line">            console.log(vals);//结果：这是子组件的数据，将有子组件操作触发传给父组件</span><br><span class="line">            this.msg = vlas;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">//子组件：child.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">       &lt;input type=&quot;button&quot; value=&quot;子组件触发&quot; @click=&quot;target&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">            texts:&apos;这是子组件的数据，将有子组件操作触发传给父组件&apos;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        target:function()&#123; //有子组件的事件触发 自定义事件childevent</span><br><span class="line">            this.$emit(&apos;childevent&apos;,this.texts);//触发一个在子组件中声明的事件 childEvnet</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>第二种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">//父组件：parent.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;child  v-on:childevent=&apos;wathChildEvent&apos; ref=&quot;childcomp&quot;&gt;&lt;/child&gt;</span><br><span class="line">        &lt;input type=&quot;button&quot; @click=&quot;parentEnvet&quot; value=&quot;父组件触发&quot; /&gt;</span><br><span class="line">        &lt;div&gt;子组件的数据为：&#123;&#123;msg&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &quot;./child&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            msg:&quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        child</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        wathChildEvent:function(vals)&#123;//直接监听 又子组件触发的事件，参数为子组件的传来的数据</span><br><span class="line">            console.log(vals);//这是子组件的数据，将有子组件操作触发传给父组件</span><br><span class="line">            this.msg = vlas;</span><br><span class="line">        &#125;,</span><br><span class="line">        parentEnvet:function()&#123;</span><br><span class="line">            this.$refs[&apos;childcomp&apos;].target(); //通过refs属性获取子组件实例，又父组件操作子组件的方法触发事件$meit</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">//子组件：child.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;!-- dothing..... --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">            texts:&apos;这是子组件的数据，将有子组件操作触发传给父组件&apos;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        target:function()&#123; //又子组件的事件触发 自定义事件childevent</span><br><span class="line">            this.$emit(&apos;childevent&apos;,this.texts);//触发一个在子组件中声明的事件 childEvnet</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><code>将两者情况对比，区别就在于$emit 自定义事件的触发是有父组件还是子组件去触发</code><br> <code>第一种，是在子组件中定义一个click点击事件来触发自定义事件$emit,然后在父组件监听</code><br> <code>第二种，是在父组件中第一一个click点击事件，在组件中通过refs获取实例方法来直接触发事件,然后在父组件中监听</code></p>
+<h3 id="兄弟组件之间的通信"><a href="#兄弟组件之间的通信" class="headerlink" title=" 兄弟组件之间的通信**"></a><em> </em>兄弟组件之间的通信**</h3><p> 1.兄弟之间传递数据通过事件<br> 2.创建一个新Vue的实例，让各个兄弟共用同一个事件机制。（关键点）<br> 3.传递数据方，通过事件触发$emit(方法名，传递的数据)。<br> 4.接收数据方，在mounted()钩子函数(挂载实例)中 触发事件$on(方法名，callback(接收数据的数据))，此时callback函数中的this已经发生了改变，可以使用箭头函数。</p>
+<p>例子：</p>
+<p>  //建立一个空的Vue实例,将通信事件挂载在该实例上 就是新建一个中间介文件（就是桥梁的意思 不做任何事情 就只挂载vue实例，如下）</p>
+<pre><code>//emptyVue.js
+</code></pre><p> import Vue from ‘vue’<br> export default new Vue()</p>
+<h4 id="定义桥梁之后我们首先要在我们创建的这两个兄弟组件中引入它"><a href="#定义桥梁之后我们首先要在我们创建的这两个兄弟组件中引入它" class="headerlink" title="定义桥梁之后我们首先要在我们创建的这两个兄弟组件中引入它"></a>定义桥梁之后我们首先要在我们创建的这两个兄弟组件中引入它</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">//兄弟组件a:childa.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;span&gt;A组件-&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;input type=&quot;button&quot; value=&quot;把a组件数据传给b&quot; @click =&quot;send&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import vmson from &quot;./emptyVue&quot;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg:&quot;我是a组件的数据&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        send:function()&#123;</span><br><span class="line">            vmson.$emit(&quot;aevent&quot;,this.msg)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//兄弟组件b:childb.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">     &lt;div&gt;</span><br><span class="line">        &lt;span&gt;b组件,a传的的数据为-&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import vmson from &quot;./emptyVue&quot;</span><br><span class="line">export default &#123;</span><br><span class="line"> data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg:&quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        vmson.$on(&quot;aevent&quot;,(val)=&gt;&#123;//监听事件aevent，回调函数要使用箭头函数;</span><br><span class="line">            console.log(val);//打印结果：我是a组件的数据</span><br><span class="line">            this.msg = val;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//父组件：parent.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;childa&gt;&lt;childa&gt;</span><br><span class="line">        &lt;childb&gt;&lt;/childb&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import childa from &quot;./childa&quot;;</span><br><span class="line">import childb from &quot;./childb&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            msg:&quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        childa,</span><br><span class="line">        childb</span><br><span class="line">    &#125;,</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/javascropt/" rel="tag"># javascropt</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/28/vue配置跨域和后端TP5设置跨域请求/" rel="next" title="vue配置跨域和后端TP5设置跨域请求">
+                <i class="fa fa-chevron-left"></i> vue配置跨域和后端TP5设置跨域请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TANQIFENG">
+            
+              <p class="site-author-name" itemprop="name">TANQIFENG</p>
+              <p class="site-description motion-element" itemprop="description">宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-笔记"><span class="nav-number">1.</span> <span class="nav-text">vue 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，路由带参数跳转"><span class="nav-number">1.0.1.</span> <span class="nav-text">一，路由带参数跳转</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#router-link"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">router-link</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#router方式跳转-编程式导航跳转"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">$router方式跳转(编程式导航跳转)</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE-使用AXIOS-异步"><span class="nav-number">1.1.</span> <span class="nav-text">VUE 使用AXIOS 异步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1，执行-GET-请求："><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1，执行 GET 请求：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2，执行-POST请求："><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2，执行 POST请求：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3，执行多个并发请求："><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3，执行多个并发请求：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，axios-API"><span class="nav-number">1.1.1.</span> <span class="nav-text">4，axios API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求方法别名"><span class="nav-number">1.1.2.</span> <span class="nav-text">请求方法别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发"><span class="nav-number">1.1.3.</span> <span class="nav-text">并发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue中的组件通信"><span class="nav-number">2.</span> <span class="nav-text">* Vue中的组件通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子组件到父组件的通信"><span class="nav-number">2.0.1.</span> <span class="nav-text">子组件到父组件的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兄弟组件之间的通信"><span class="nav-number">2.0.2.</span> <span class="nav-text"> 兄弟组件之间的通信**</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义桥梁之后我们首先要在我们创建的这两个兄弟组件中引入它"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">定义桥梁之后我们首先要在我们创建的这两个兄弟组件中引入它</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TANQIFENG</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
