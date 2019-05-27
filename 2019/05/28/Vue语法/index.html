@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,javascropt,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vue1. 直接在html引入vue.js12&amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;//中间的网址即为下载地址 2.jquery与vue的异同 jquery.js提供$或者jquery全局变量 vue.js提供vue全局变量 Vue的核心库只关">
+<meta name="keywords" content="vue,javascropt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue语法">
+<meta property="og:url" content="http://yoursite.com/2019/05/28/Vue语法/index.html">
+<meta property="og:site_name" content="I`M Blog">
+<meta property="og:description" content="vue1. 直接在html引入vue.js12&amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;//中间的网址即为下载地址 2.jquery与vue的异同 jquery.js提供$或者jquery全局变量 vue.js提供vue全局变量 Vue的核心库只关">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-27T16:24:36.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue语法">
+<meta name="twitter:description" content="vue1. 直接在html引入vue.js12&amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;//中间的网址即为下载地址 2.jquery与vue的异同 jquery.js提供$或者jquery全局变量 vue.js提供vue全局变量 Vue的核心库只关">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/28/Vue语法/">
+
+
+
+
+
+  <title>Vue语法 | I`M Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I`M Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/Vue语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANQIFENG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I`M Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue语法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T00:16:00+08:00">
+                2019-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h4 id="1-直接在html引入vue-js"><a href="#1-直接在html引入vue-js" class="headerlink" title="1. 直接在html引入vue.js"></a>1. 直接在html引入<code>vue.js</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">//中间的网址即为下载地址</span><br></pre></td></tr></table></figure>
+<h4 id="2-jquery与vue的异同"><a href="#2-jquery与vue的异同" class="headerlink" title="2.jquery与vue的异同"></a>2.jquery与vue的异同</h4><ul>
+<li><code>jquery.js</code>提供<code>$或者jquery</code>全局变量</li>
+<li><code>vue.js</code>提供<code>vue</code>全局变量</li>
+<li>Vue的核心库只关注视图层，读音<code>view</code></li>
+<li>双向数据绑定，data里数据改变视图也改变</li>
+<li>如果页面注重操作节点，用jquery</li>
+<li>如果页面数据比较多，建议用vue</li>
+</ul>
+<h2 id="二、开发工具"><a href="#二、开发工具" class="headerlink" title="二、开发工具"></a>二、开发工具</h2><h4 id="1-用git下载谷歌浏览器工具，然后方便我们开发vue项目"><a href="#1-用git下载谷歌浏览器工具，然后方便我们开发vue项目" class="headerlink" title="1.用git下载谷歌浏览器工具，然后方便我们开发vue项目"></a>1.用git下载谷歌浏览器工具，然后方便我们开发vue项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue-devtools.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时你会看到文件中多了一个<code>vue-devtools</code>文件</li>
+<li>进入到这个文件npm install，安装依赖包； </li>
+<li>安装成功之后npm run build </li>
+<li>若不执行以上命令会报错，无法加载背景脚本”build/background.js”   //……</li>
+<li>打开shells&gt;chrome&gt;manifest.json并把json文件里的”persistent”:false改成true  //……..</li>
+<li>打开chrome浏览器，打开更多工具&gt;扩展程序； </li>
+<li>再点击加载已解压的扩展程序，然后把shells&gt;chrome文件夹放入 </li>
+</ul>
+<h2 id="三、helloworld"><a href="#三、helloworld" class="headerlink" title="三、helloworld"></a>三、helloworld</h2><h4 id="1-先实例化Vue-里面允许我们放很多选项-https-cn-vuejs-org-v2-api-可以放-数据，DOM，生命钩子，资源和组合"><a href="#1-先实例化Vue-里面允许我们放很多选项-https-cn-vuejs-org-v2-api-可以放-数据，DOM，生命钩子，资源和组合" class="headerlink" title="1.先实例化Vue,里面允许我们放很多选项(https://cn.vuejs.org/v2/api/),可以放**数据，DOM，生命钩子，资源和组合**"></a>1.先实例化<code>Vue</code>,里面允许我们放很多选项(<a href="https://cn.vuejs.org/v2/api/),可以放**数据，DOM，生命钩子，资源和组合*" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/),可以放**数据，DOM，生命钩子，资源和组合*</a>*</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// 选项</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2-你用jQ，第一要有数据，第二要有节点，没节点，数据没意义"><a href="#2-你用jQ，第一要有数据，第二要有节点，没节点，数据没意义" class="headerlink" title="2.你用jQ，第一要有数据，第二要有节点，没节点，数据没意义"></a>2.你用jQ，第一要有数据，第二要有节点，没节点，数据没意义</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.ajax()<span class="comment">//</span></span><br><span class="line">$(el).html(data)</span><br><span class="line"><span class="comment">//寻找节点，然后放数据</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-放入必要的选项，el和data是必须要有的"><a href="#3-放入必要的选项，el和data是必须要有的" class="headerlink" title="3.放入必要的选项，el和data是必须要有的"></a>3.放入必要的选项，el和data是必须要有的</h4><p>el就是寻找节点（找作用域），data就是配合<code>`来渲染数据
+
+undefined
+
+#### 4.在view层的`id`为`demo`的作用域里面配合`</code>绑定数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;% raw %&#125;num+1+'1'&#123;% endraw %&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、jQuery和Vue的表达式和指令"><a href="#四、jQuery和Vue的表达式和指令" class="headerlink" title="四、jQuery和Vue的表达式和指令"></a>四、jQuery和Vue的表达式和指令</h2><h4 id="1-文本值"><a href="#1-文本值" class="headerlink" title="1.文本值"></a>1.文本值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jq写法</span><br><span class="line">$().text();</span><br><span class="line"></span><br><span class="line">vue写法</span><br><span class="line">&lt;p&gt;&#123;% raw %&#125;name&#123;% endraw %&#125;&lt;/p&gt;</span><br><span class="line">&lt;p v-text=&quot;name&quot;&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-属性值"><a href="#2-属性值" class="headerlink" title="2.属性值"></a>2.属性值</h4><ul>
+<li><p><code>:style</code>和<code>:class</code>是必须接受一个对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">       .red&#123;</span><br><span class="line">           color:red</span><br><span class="line">       &#125;</span><br><span class="line">       .bg&#123;</span><br><span class="line">           background-color:yellow</span><br><span class="line">       &#125;</span><br><span class="line">       .size&#123;</span><br><span class="line">           font-size:28px</span><br><span class="line">       &#125;</span><br><span class="line">   &lt;/style&gt;</span><br><span class="line">   &lt;div id=&quot;demo&quot;&gt;</span><br><span class="line">       &lt;p :name=&quot;name&quot; :id=&quot;name+&apos;&amp;laoxie&apos;&quot;&gt;属性&lt;/p&gt;</span><br><span class="line">       &lt;p :style=&quot;style1&quot;&gt;样式1&lt;/p&gt;</span><br><span class="line">       </span><br><span class="line">       ===========================================</span><br><span class="line">       &lt;p :style=&quot;&#123;</span><br><span class="line">           color:&apos;red&apos;,</span><br><span class="line">           fontSize:&apos;14px&apos;,</span><br><span class="line">           backgroundColor:&apos;yellow&apos;</span><br><span class="line">       &#125;&quot;&gt;样式2&lt;/p&gt;</span><br><span class="line">       &lt;p :class=&quot;class1&quot;&gt;样式1&lt;/p&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">   =====================================================</span><br><span class="line">   &lt;script src=&quot;../../js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">var vm = new Vue(&#123;</span><br><span class="line">           // 选项</span><br><span class="line">           // 数据选项</span><br><span class="line">           data:&#123;</span><br><span class="line">               name:&quot;lemon&quot;,</span><br><span class="line">               style1:&#123;</span><br><span class="line">                   color:&apos;red&apos;,</span><br><span class="line">                   fontSize:&apos;14px&apos;,</span><br><span class="line">                   backgroundColor:&apos;yellow&apos;</span><br><span class="line">               &#125;,</span><br><span class="line">               class1:&#123;</span><br><span class="line">                   red:true,</span><br><span class="line">                   bg:false,</span><br><span class="line">                   size:true</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;,</span><br><span class="line">           el:&quot;#demo&quot;</span><br><span class="line">       &#125;)</span><br><span class="line"> </span><br><span class="line"> 解释：就是你要是写style样式，或者是要以类名的方式添加样式，就要在下面写成对象的方式，然后再给上面添加变量即可</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>:xxx</code>都可以接受任何变量</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jq写法</span><br><span class="line">$().attr();</span><br><span class="line">$().css();</span><br><span class="line">$().addClass();</span><br><span class="line"></span><br><span class="line">vue写法</span><br><span class="line">&lt;p :name=&quot;name&quot;&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>插入html结构</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$().html()</span><br><span class="line"></span><br><span class="line">&lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示或者隐藏，本质是控制css，节点一直存在的，频繁切换（选项卡，加载的动画）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jq写法</span><br><span class="line">$().show()</span><br><span class="line">$().hide()</span><br><span class="line"></span><br><span class="line">vue写法</span><br><span class="line">&lt;div v-show=&quot;!bool&quot;&gt;你好&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对节点增加或者删除，节点要不存在或者不存在</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jq写法</span><br><span class="line">$().append()</span><br><span class="line">$().remove()</span><br><span class="line"></span><br><span class="line">vue写法</span><br><span class="line">&lt;div v-if=&quot;!bool&quot;&gt;你好&lt;/div&gt;</span><br><span class="line">&lt;div v-else&gt;假的&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>v-for放哪里，那个节点就跟着遍历对应的数组,支持嵌套其他指令<code>v-for,v-if和v-show</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">jq写法</span><br><span class="line">$().each()</span><br><span class="line"></span><br><span class="line">vue写法</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in arr"</span> <span class="attr">v-text</span>=<span class="string">"item.name"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">备注：</span><br><span class="line">v-for 指令需要以 site in sites 形式的特殊语法， sites 是源数据数组并且 site 是数组元素迭代的别名。</span><br><span class="line">v-for 可以绑定数据到数组来渲染一个列表</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>v-on:click</code>简写为<code>@click</code>，就是把原生的onmousedown-&gt;@mousedown，把on改为@，把事件监听函数方法选项的<code>methods</code>里面</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jq写法</span><br><span class="line">$().on()</span><br><span class="line">$().click()</span><br><span class="line"></span><br><span class="line">vue写法</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"loadMore"</span>&gt;</span>查看更多<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>v-bind:xxx</code>简写为<code>:xxx</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:name</span>=<span class="string">"name"</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">==============================</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">:name</span>=<span class="string">"name"</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">备注：两种写法为一个意思</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>v-model</code>是把视图的值，带回选项<code>data</code>里面，只能用在这三个标签里面</li>
+<li>视图层影响数据层<code>v-model</code>或者<code>v-on:click</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model=&quot;name&quot; /&gt;</span><br><span class="line">&lt;select&gt;</span><br><span class="line">&lt;textarea&gt;</span><br><span class="line"></span><br><span class="line">备注：v-model链接data中定义的数据</span><br></pre></td></tr></table></figure>
+<h2 id="五、data、methods、-用于输出对象属性和函数返回值。"><a href="#五、data、methods、-用于输出对象属性和函数返回值。" class="headerlink" title="五、data、methods、 用于输出对象属性和函数返回值。"></a>五、data、methods、
+
+- data用于定义属性
+
+undefined
+
+- methods 用于定义的函数，可以通过 return 来返回函数值。 
+
+undefined
+
+-   用于输出对象属性和函数返回值。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;demo&quot;&gt;</span><br><span class="line">        &lt;p&gt;&#123;% raw %&#125;name&#123;% endraw %&#125;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;&#123;% raw %&#125;arr&#123;% endraw %&#125;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;&#123;% raw %&#125;arr[0]&#123;% endraw %&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="六、模板语法"><a href="#六、模板语法" class="headerlink" title="六、模板语法"></a>六、模板语法</h2><ul>
+<li>使用v-html指令用于输出html代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;demo&quot;&gt;</span><br><span class="line">        &lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;../../js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        new Vue(&#123;</span><br><span class="line">            el: &quot;#demo&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                html: &quot;&lt;p&gt;123&lt;span&gt;456&lt;/span&gt;789&lt;/p&gt;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">备注：v-html一般用于输出HTML结构</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/javascropt/" rel="tag"># javascropt</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/27/解决异步回调地狱之Promise/" rel="next" title="解决异步回调地狱之Promise">
+                <i class="fa fa-chevron-left"></i> 解决异步回调地狱之Promise
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TANQIFENG">
+            
+              <p class="site-author-name" itemprop="name">TANQIFENG</p>
+              <p class="site-description motion-element" itemprop="description">宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue"><span class="nav-number">1.</span> <span class="nav-text">vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-直接在html引入vue-js"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 直接在html引入vue.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-jquery与vue的异同"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.jquery与vue的异同</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#二、开发工具"><span class="nav-number">1.1.</span> <span class="nav-text">二、开发工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-用git下载谷歌浏览器工具，然后方便我们开发vue项目"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.用git下载谷歌浏览器工具，然后方便我们开发vue项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、helloworld"><span class="nav-number">1.2.</span> <span class="nav-text">三、helloworld</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-先实例化Vue-里面允许我们放很多选项-https-cn-vuejs-org-v2-api-可以放-数据，DOM，生命钩子，资源和组合"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1.先实例化Vue,里面允许我们放很多选项(https://cn.vuejs.org/v2/api/),可以放**数据，DOM，生命钩子，资源和组合**</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-你用jQ，第一要有数据，第二要有节点，没节点，数据没意义"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2.你用jQ，第一要有数据，第二要有节点，没节点，数据没意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-放入必要的选项，el和data是必须要有的"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">3.放入必要的选项，el和data是必须要有的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、jQuery和Vue的表达式和指令"><span class="nav-number">1.3.</span> <span class="nav-text">四、jQuery和Vue的表达式和指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-文本值"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.文本值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-属性值"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2.属性值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、data、methods、-用于输出对象属性和函数返回值。"><span class="nav-number">1.4.</span> <span class="nav-text">五、data、methods、
+
+- data用于定义属性
+
+undefined
+
+- methods 用于定义的函数，可以通过 return 来返回函数值。 
+
+undefined
+
+-   用于输出对象属性和函数返回值。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、模板语法"><span class="nav-number">1.5.</span> <span class="nav-text">六、模板语法</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TANQIFENG</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
