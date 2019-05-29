@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascropt,小程序,">
+  <meta name="keywords" content="CSS,">
 
 
 
@@ -79,27 +79,18 @@
 
 
 
-<meta name="description" content="微信小程序如何绕过业务域名的验证 准备工作    1. 准备域名  准备一个域名，这个域名需要备案过的 (新建一个二级域名)。 2. 使用宝塔 linux 面板创建新的站点  1、创建站点，填写域名、选择站点目录即可，不要创建数据库和 ftp(用不到)。     2、配置 ssl，没有 ssl 证书的，申请一个免费的 ssl 证书 (单域名即可)。  3. 填写业务域名及验证  打开 https:">
-<meta name="keywords" content="javascropt,小程序">
+<meta name="description" content="(一)盒模型 1.盒模型=内容content+内填充padding+边框border+外间距margin  2.width、height 不是指盒子的大小，而是内容contnt的大小                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要          ​                  添加padding、bo">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序如何绕过业务域名的验证">
-<meta property="og:url" content="http://yoursite.com/2019/05/28/微信小程序如何绕过业务域名的验证/index.html">
+<meta property="og:title" content="盒模型">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/盒模型/index.html">
 <meta property="og:site_name" content="I`M Blog">
-<meta property="og:description" content="微信小程序如何绕过业务域名的验证 准备工作    1. 准备域名  准备一个域名，这个域名需要备案过的 (新建一个二级域名)。 2. 使用宝塔 linux 面板创建新的站点  1、创建站点，填写域名、选择站点目录即可，不要创建数据库和 ftp(用不到)。     2、配置 ssl，没有 ssl 证书的，申请一个免费的 ssl 证书 (单域名即可)。  3. 填写业务域名及验证  打开 https:">
+<meta property="og:description" content="(一)盒模型 1.盒模型=内容content+内填充padding+边框border+外间距margin  2.width、height 不是指盒子的大小，而是内容contnt的大小                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要          ​                  添加padding、bo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127623-ce5d7f5f-12bb-4bc0-9059-e26291407d6e.jpeg">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127652-aba8a419-7960-40ad-90cb-217ecc19ec24.jpeg">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127635-4bd9b668-e818-4468-885e-e973292c5136.jpeg?x-oss-process=image/resize,w_1492">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127623-86d65184-c664-4971-9426-fb068d7155df.jpeg?x-oss-process=image/resize,w_1492">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127647-ad601989-d90f-4844-92e1-3cdd069b6485.jpeg">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127627-1402e316-be73-4844-a462-5b48b1fff209.jpeg">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127664-49a1ae57-b3c2-4bea-813e-1d36820f5992.jpeg">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127622-1b55f57b-9602-4615-b453-d863cba6a487.jpeg?x-oss-process=image/resize,w_1492">
-<meta property="og:updated_time" content="2019-05-27T16:32:15.921Z">
+<meta property="og:updated_time" content="2019-05-29T16:10:36.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序如何绕过业务域名的验证">
-<meta name="twitter:description" content="微信小程序如何绕过业务域名的验证 准备工作    1. 准备域名  准备一个域名，这个域名需要备案过的 (新建一个二级域名)。 2. 使用宝塔 linux 面板创建新的站点  1、创建站点，填写域名、选择站点目录即可，不要创建数据库和 ftp(用不到)。     2、配置 ssl，没有 ssl 证书的，申请一个免费的 ssl 证书 (单域名即可)。  3. 填写业务域名及验证  打开 https:">
-<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127623-ce5d7f5f-12bb-4bc0-9059-e26291407d6e.jpeg">
+<meta name="twitter:title" content="盒模型">
+<meta name="twitter:description" content="(一)盒模型 1.盒模型=内容content+内填充padding+边框border+外间距margin  2.width、height 不是指盒子的大小，而是内容contnt的大小                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要          ​                  添加padding、bo">
 
 
 
@@ -129,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/28/微信小程序如何绕过业务域名的验证/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/30/盒模型/">
 
 
 
 
 
-  <title>微信小程序如何绕过业务域名的验证 | I`M Blog</title>
+  <title>盒模型 | I`M Blog</title>
   
 
 
@@ -252,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/微信小程序如何绕过业务域名的验证/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/盒模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TANQIFENG">
@@ -269,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微信小程序如何绕过业务域名的验证</h1>
+          <h1 class="post-title" itemprop="name headline">盒模型</h1>
         
 
         <div class="post-meta">
@@ -281,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T00:31:38+08:00">
-                2019-05-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T00:07:57+08:00">
+                2019-05-30
               </time>
             
 
@@ -304,8 +295,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/小程序/" itemprop="url" rel="index">
-                    <span itemprop="name">小程序</span>
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML+CSS</span>
                   </a>
                 </span>
 
@@ -341,23 +332,16 @@
       
 
       
-        <h1 id="微信小程序如何绕过业务域名的验证"><a href="#微信小程序如何绕过业务域名的验证" class="headerlink" title="微信小程序如何绕过业务域名的验证"></a>微信小程序如何绕过业务域名的验证</h1><ul>
-<li>准备工作  </li>
-</ul>
-<h3 id="1-准备域名"><a href="#1-准备域名" class="headerlink" title="1. 准备域名"></a><strong>1. 准备域名</strong></h3><p>  准备一个域名，这个域名需要备案过的 (新建一个二级域名)。</p>
-<h3 id="2-使用宝塔-linux-面板创建新的站点"><a href="#2-使用宝塔-linux-面板创建新的站点" class="headerlink" title="2. 使用宝塔 linux 面板创建新的站点"></a><strong>2. 使用宝塔 linux 面板创建新的站点</strong></h3><p>  1、创建站点，填写域名、选择站点目录即可，不要创建数据库和 ftp(用不到)。 </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127623-ce5d7f5f-12bb-4bc0-9059-e26291407d6e.jpeg" alt></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127652-aba8a419-7960-40ad-90cb-217ecc19ec24.jpeg" alt>  2、配置 ssl，没有 ssl 证书的，申请一个免费的 ssl 证书 (单域名即可)。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127635-4bd9b668-e818-4468-885e-e973292c5136.jpeg?x-oss-process=image/resize,w_1492" alt></p>
-<h3 id="3-填写业务域名及验证"><a href="#3-填写业务域名及验证" class="headerlink" title="3. 填写业务域名及验证"></a><strong>3. 填写业务域名及验证</strong></h3><p>  打开 <a href="https://mp.weixin.qq.com/" target="_blank" rel="noopener">https://mp.weixin.qq.com</a> 登录账号，配置业务域名，将验证文件放在刚刚新建的站点根目录即可，点击保存。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127623-86d65184-c664-4971-9426-fb068d7155df.jpeg?x-oss-process=image/resize,w_1492" alt></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127647-ad601989-d90f-4844-92e1-3cdd069b6485.jpeg" alt></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127627-1402e316-be73-4844-a462-5b48b1fff209.jpeg" alt></p>
-<h3 id="4-配置反向代理"><a href="#4-配置反向代理" class="headerlink" title="4. 配置反向代理"></a><strong>4. 配置反向代理</strong></h3><p>  1、回到宝塔 linux 面板，点击左侧菜单中的’网站’，找到新建的站点。</p>
-<p>  2、然后点击域名，在弹出的对话框中选择’反向代理’(如果没有这个选项，请升级宝塔面板)。</p>
-<p>  3、点击’添加反向代理’，输入代理名称 (可以随便填写)，’目标 URL’填写要外链的域名 (需要填写 <a href="https://xn--http-475hs64m/" target="_blank" rel="noopener">https:// 或者 http</a>://)，’发送域名’会自动生成，不用管。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127664-49a1ae57-b3c2-4bea-813e-1d36820f5992.jpeg" alt></p>
-<h3 id="这时候配置就完成了，可以去小程序测试了，简单吧！！！"><a href="#这时候配置就完成了，可以去小程序测试了，简单吧！！！" class="headerlink" title="  这时候配置就完成了，可以去小程序测试了，简单吧！！！"></a><strong>  这时候配置就完成了，可以去小程序测试了，简单吧！！！</strong></h3><p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/223589/1551610127622-1b55f57b-9602-4615-b453-d863cba6a487.jpeg?x-oss-process=image/resize,w_1492" alt></p>
+        <h2 id="一-盒模型"><a href="#一-盒模型" class="headerlink" title="(一)盒模型"></a>(一)盒模型</h2><p> 1.盒模型=内容content+内填充padding+边框border+外间距margin<br>  2.width、height 不是指盒子的大小，而是内容contnt的大小<br>                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要         </p>
+<p>​                  添加padding、border,盒子会被撑大。为了保证盒子大小不变，width、height需要减去对应的值.</p>
+<h2 id="二-padding"><a href="#二-padding" class="headerlink" title="(二)padding"></a>(二)padding</h2><p>1.padding取值：遵循上右下左原则,缺省的值找反义词的值<br>2.padding-方位<br>3.注意；   （1）padding不可以为负值；<br>                     (2) 背景会从padding的区域开始摆放，说明<strong>background-position:0 0;在padding的左上角</strong>。</p>
+<h2 id="三-margin"><a href="#三-margin" class="headerlink" title="(三)margin"></a>(三)margin</h2><p>1.margin取值：遵循上右下左原则，缺省的值找反义词的值<br>2.margin-方位<br>3注意:    margin可以取负值</p>
+<h2 id="四-页面"><a href="#四-页面" class="headerlink" title="(四)页面"></a>(四)页面</h2><p>结构：<br>                <strong>最外层    </strong>#qianfeng -<strong>每一层大盒子#id名-版心容器</strong>（专门放内容的.container）<br>                页面链接css文件时，先链接到base.css,再单独链接到页面对应的css文件。</p>
+<p>​        （base.css是公共部分样式）    base.css 存在的意义:<br>                                                        1.清除默认样式<br>                                                        2.添加公共样式<br>                                                        3.添加页面公共部分<br>                                                         页面.css书写页面剩余部分的样式</p>
+<h2 id="五-样式"><a href="#五-样式" class="headerlink" title="(五)样式"></a>(五)样式</h2><p>1.清除默认样式<br>2.添加公共样式<br>            版心容器{宽度1000、背景、居中}<br>3.书写页面样式<br>            最外层宽度100%-每一层大容器｛宽度100%、高度背景色｝，每一层的版心容器｛高度跟随｝<br>  注意：<br>        1.h1最好是用背景图片 文本用text-indent隐藏<br>        2.<strong>列表中，li（float:left;）,每个列表项的样式给a标签加，</strong><br>        <strong>a｛display:block;width:;height:;｝</strong>但是宽度不一致的情况下，a标签就不能设置具体宽度，由其<strong>字体个数决定width</strong>.一般此时的盒子大小应由各自内容的width+左右padding.<br>        3.若容器内<strong>都是文本的</strong>，都添加<strong>｛line-height:;font-size:;color:;｝</strong>从有参照文本的那一段开始量.</p>
+<p>​    4.列表悬停改变样式的话，建议<strong>鼠标悬停在li上，改变子元素a的样式</strong>，写法<strong>li:hover a</strong></p>
+<p>​    5.当父元素与子元素存在上间距，若子元素不存在浮动的情况，就给父元素加padding-top,而不要给第一个字元素加margin-top</p>
+<p>​        </p>
 
       
     </div>
@@ -375,9 +359,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascropt/" rel="tag"># javascropt</a>
-          
-            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -390,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/28/面向对象和面向过程/" rel="next" title="面向对象和面向过程">
-                <i class="fa fa-chevron-left"></i> 面向对象和面向过程
+              <a href="/2019/05/30/弹性盒模型/" rel="next" title="弹性盒模型">
+                <i class="fa fa-chevron-left"></i> 弹性盒模型
               </a>
             
           </div>
@@ -400,8 +382,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/28/vue配置跨域和后端TP5设置跨域请求/" rel="prev" title="vue配置跨域和后端TP5设置跨域请求">
-                vue配置跨域和后端TP5设置跨域请求 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/30/边框渐变旋转和过渡/" rel="prev" title="边框渐变旋转和过渡">
+                边框渐变旋转和过渡 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -536,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信小程序如何绕过业务域名的验证"><span class="nav-number">1.</span> <span class="nav-text">微信小程序如何绕过业务域名的验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-准备域名"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 准备域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用宝塔-linux-面板创建新的站点"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 使用宝塔 linux 面板创建新的站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-填写业务域名及验证"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 填写业务域名及验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置反向代理"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. 配置反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这时候配置就完成了，可以去小程序测试了，简单吧！！！"><span class="nav-number">1.0.5.</span> <span class="nav-text">  这时候配置就完成了，可以去小程序测试了，简单吧！！！</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-盒模型"><span class="nav-number">1.</span> <span class="nav-text">(一)盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-padding"><span class="nav-number">2.</span> <span class="nav-text">(二)padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-margin"><span class="nav-number">3.</span> <span class="nav-text">(三)margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-页面"><span class="nav-number">4.</span> <span class="nav-text">(四)页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-样式"><span class="nav-number">5.</span> <span class="nav-text">(五)样式</span></a></li></ol></div>
             
 
           </div>

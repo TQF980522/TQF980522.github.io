@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、边框属性1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];​                    * x-offset 水平偏移，往右为正值 * y-offset 垂直偏移，往下为正值 * blur 模糊区域 * spread 扩展区域 * color 颜色 * inset 往元素内部移动。若是不设置，则往元素外部">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="边框渐变旋转和过渡">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/边框渐变旋转和过渡/index.html">
+<meta property="og:site_name" content="I`M Blog">
+<meta property="og:description" content="一、边框属性1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];​                    * x-offset 水平偏移，往右为正值 * y-offset 垂直偏移，往下为正值 * blur 模糊区域 * spread 扩展区域 * color 颜色 * inset 往元素内部移动。若是不设置，则往元素外部">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/translate-x-y.png">
+<meta property="og:image" content="e:/笔记/rotate.png">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/skew-x-y.png">
+<meta property="og:updated_time" content="2019-05-29T16:14:53.491Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="边框渐变旋转和过渡">
+<meta name="twitter:description" content="一、边框属性1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];​                    * x-offset 水平偏移，往右为正值 * y-offset 垂直偏移，往下为正值 * blur 模糊区域 * spread 扩展区域 * color 颜色 * inset 往元素内部移动。若是不设置，则往元素外部">
+<meta name="twitter:image" content="http://www.w3cplus.com/sites/default/files/translate-x-y.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/30/边框渐变旋转和过渡/">
+
+
+
+
+
+  <title>边框渐变旋转和过渡 | I`M Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I`M Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/边框渐变旋转和过渡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANQIFENG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I`M Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">边框渐变旋转和过渡</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T00:14:28+08:00">
+                2019-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML+CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、边框属性"><a href="#一、边框属性" class="headerlink" title="一、边框属性"></a>一、边框属性</h1><h2 id="1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…"><a href="#1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…" class="headerlink" title="1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];"></a>1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];</h2><p>​                    * x-offset 水平偏移，往右为正值</p>
+<pre><code>* y-offset 垂直偏移，往下为正值
+* blur 模糊区域
+* spread 扩展区域
+* color 颜色
+* inset 往元素内部移动。若是不设置，则往元素外部添加边框阴影
+</code></pre><h2 id="2-边框图片-border-image"><a href="#2-边框图片-border-image" class="headerlink" title="2.边框图片 border-image"></a>2.边框图片 border-image</h2><p>​                * 边框图片引入border-image-source:url()</p>
+<pre><code>* 边框图片的裁剪 border-image-slice 遵循上右下左原则(不带单位)
+* 边框图片的宽度 border-image-width 若省略该值，默认就是边框宽度
+* 边框图片的重复 border-image-repeat
+    *属性值：stretch默认拉伸    repeat重复  round压缩重复
+* 边框图片向外延伸 border-image-outset 不能取负数
+</code></pre><h2 id="3-边框圆角-border-radius"><a href="#3-边框圆角-border-radius" class="headerlink" title="3.边框圆角 border-radius"></a>3.边框圆角 border-radius</h2><p>​                某个角的边框圆角：border-垂直方位-水平方位-radius:水平半径 垂直半径;<br>                border-radius:水平半径/垂直半径;<br>                    水平或垂直半径遵循（从左上角开始）顺时针原则,缺省的值找对角</p>
+<h1 id="二-渐变"><a href="#二-渐变" class="headerlink" title="二.渐变"></a>二.渐变</h1><h2 id="（一）线性渐变-linear-gradient"><a href="#（一）线性渐变-linear-gradient" class="headerlink" title="（一）线性渐变  linear-gradient"></a>（一）线性渐变  linear-gradient</h2><p>​                1.gradient(linear,起点坐标,终点坐标,from(color),to(color))</p>
+<pre><code>    * 坐标写法：水平坐标 垂直坐标; (只能用百分比)
+2.gradient(linear,起点坐标,终点坐标,color-stop(渐变开始的位置,color)[,...])
+    * 渐变开始的位置取值为0-1
+3.linear-gradient(方向||角度,颜色 渐变开始的位置)
+    * 方向：top bottom left right
+    * 角度单位:deg
+    * 渐变开始的位置:0-100%
+    * 老版本（加前缀的写法）+新版本 = 90deg
+</code></pre><h2 id="二-径向渐变radial-gradient"><a href="#二-径向渐变radial-gradient" class="headerlink" title="(二)径向渐变radial-gradient"></a>(二)径向渐变radial-gradient</h2><p>​                1. radial-gradient(圆心，颜色 开始渐变的位置[,….])</p>
+<pre><code>2. radial-gradient(圆心,size||shape,颜色 开始渐变的位置[,....])
+    * size大小：
+        closest-side：最近边； 
+        farthest-side：最远边；
+        closest-corner：最近角；
+        farthest-corner：最远角（默认值）
+    * shape形状：
+        ellipse椭圆形(默认)，circle表示圆形。
+</code></pre><h2 id="三-重复渐变-repeating-linear（radial）-gradient-用法同上"><a href="#三-重复渐变-repeating-linear（radial）-gradient-用法同上" class="headerlink" title="(三) 重复渐变 repeating-linear（radial）-gradient 用法同上"></a>(三) 重复渐变 repeating-linear（radial）-gradient 用法同上</h2><h1 id="浏览器的私有前缀"><a href="#浏览器的私有前缀" class="headerlink" title="浏览器的私有前缀"></a>浏览器的私有前缀</h1><table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>内核</th>
+<th>私有前缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chrome、safari</td>
+<td>Webkit</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>Presto</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>ie</td>
+<td>Trident</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>Gecko</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>chrome、opera</td>
+<td>blink</td>
+</tr>
+</tbody>
+</table>
+<h1 id="过渡-transition"><a href="#过渡-transition" class="headerlink" title="过渡 transition"></a>过渡 transition</h1><p>​          </p>
+<ol>
+<li><p>需要过渡的属性  transition-property：</p>
+</li>
+<li><p>过渡的时间 transition-duration：</p>
+</li>
+<li><p>过渡的形式 transition-timing-function：</p>
+<pre><code>*linear 匀速    ease慢速进入慢速离开
+   *ease-in 慢速进入   ease-out慢速离开
+   *ease-in-out慢速进入慢速离开
+</code></pre></li>
+<li><p>过渡的延迟 transition-delay：   </p>
+<pre><code>**总属性 transition: 1 2 3 4;(1跟2不可以省略) **
+  多个属性同时过渡可以用**all**。            
+</code></pre></li>
+</ol>
+<h2 id="四-2d变换transform-gt-这是一种状态"><a href="#四-2d变换transform-gt-这是一种状态" class="headerlink" title="四.2d变换transform ==&gt;这是一种状态"></a>四.2d变换transform ==&gt;这是一种状态</h2><p>​    <strong>写变换时，先写移动，再写旋转。</strong></p>
+<h2 id="1-移动变换-transform-translate-水平方向-右-垂直方向-下"><a href="#1-移动变换-transform-translate-水平方向-右-垂直方向-下" class="headerlink" title="1. 移动变换 transform:translate(水平方向(右),垂直方向(下))"></a>1. 移动变换 transform:translate(水平方向(右),垂直方向(下))</h2><p>​                改变某个方向 transform:translateX(水平方向)<br>                               transform:translateY(垂直方向)<br>                *取值取百分比的话，指的是参考自己的宽高   </p>
+<p>transform:translate(100px,20px):                                   </p>
+<p>   <img src="http://www.w3cplus.com/sites/default/files/translate-x-y.png" alt="img">               </p>
+<h2 id="2-缩放变换transform-scale-x-y"><a href="#2-缩放变换transform-scale-x-y" class="headerlink" title="2.缩放变换transform:scale(x,y)"></a>2.缩放变换transform:scale(x,y)</h2><p>​                * 取值为缩放比（倍数），基准点为元素中心。</p>
+<pre><code>* transform:scaleX(x)    transform:scaleY(y)
+</code></pre><h2 id="3-旋转变换-transform-rotate-deg"><a href="#3-旋转变换-transform-rotate-deg" class="headerlink" title="3.旋转变换 transform:rotate(deg)"></a>3.旋转变换 <strong>transform:rotate(deg</strong>)</h2><p>​                *顺时针旋转为正值，基准点在元素中心如：transform:rotate(30deg): </p>
+<p><img src="E:\笔记\rotate.png" alt="img"> </p>
+<h2 id="4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度"><a href="#4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度" class="headerlink" title="4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)"></a>4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)</h2><p>​                *transform:skewX(x轴旋转的角度)</p>
+<p>​    transform:skew(30deg,10deg): </p>
+<p><img src="http://www.w3cplus.com/sites/default/files/skew-x-y.png" alt="img"> </p>
+<h2 id="5-改变元素变换的基准点-transform-origin"><a href="#5-改变元素变换的基准点-transform-origin" class="headerlink" title="5.改变元素变换的基准点 transform-origin"></a>5.改变元素变换的基准点 transform-origin</h2><p>​                    取值：数值 百分比 方位</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/30/盒模型/" rel="next" title="盒模型">
+                <i class="fa fa-chevron-left"></i> 盒模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TANQIFENG">
+            
+              <p class="site-author-name" itemprop="name">TANQIFENG</p>
+              <p class="site-description motion-element" itemprop="description">宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、边框属性"><span class="nav-number">1.</span> <span class="nav-text">一、边框属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…"><span class="nav-number">1.1.</span> <span class="nav-text">1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-边框图片-border-image"><span class="nav-number">1.2.</span> <span class="nav-text">2.边框图片 border-image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-边框圆角-border-radius"><span class="nav-number">1.3.</span> <span class="nav-text">3.边框圆角 border-radius</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-渐变"><span class="nav-number">2.</span> <span class="nav-text">二.渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）线性渐变-linear-gradient"><span class="nav-number">2.1.</span> <span class="nav-text">（一）线性渐变  linear-gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-径向渐变radial-gradient"><span class="nav-number">2.2.</span> <span class="nav-text">(二)径向渐变radial-gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-重复渐变-repeating-linear（radial）-gradient-用法同上"><span class="nav-number">2.3.</span> <span class="nav-text">(三) 重复渐变 repeating-linear（radial）-gradient 用法同上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器的私有前缀"><span class="nav-number">3.</span> <span class="nav-text">浏览器的私有前缀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过渡-transition"><span class="nav-number">4.</span> <span class="nav-text">过渡 transition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四-2d变换transform-gt-这是一种状态"><span class="nav-number">4.1.</span> <span class="nav-text">四.2d变换transform ==&gt;这是一种状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-移动变换-transform-translate-水平方向-右-垂直方向-下"><span class="nav-number">4.2.</span> <span class="nav-text">1. 移动变换 transform:translate(水平方向(右),垂直方向(下))</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-缩放变换transform-scale-x-y"><span class="nav-number">4.3.</span> <span class="nav-text">2.缩放变换transform:scale(x,y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-旋转变换-transform-rotate-deg"><span class="nav-number">4.4.</span> <span class="nav-text">3.旋转变换 transform:rotate(deg)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度"><span class="nav-number">4.5.</span> <span class="nav-text">4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-改变元素变换的基准点-transform-origin"><span class="nav-number">4.6.</span> <span class="nav-text">5.改变元素变换的基准点 transform-origin</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TANQIFENG</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
