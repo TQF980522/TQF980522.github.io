@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Event事件事件是可以被JavaScript侦测到的行为。网页中的每个元素都可以产生某些可以触发JavaScript函数的事件.  事件是一瞬间触发。 事件绑定方式DOM节点绑定（格式）：节点.on+事件名 = 事件处理函数; 123456789//（1）DOM节点绑定//	*同名事件会被覆盖//  *事件处理函数只能冒泡阶段执行div.onclick = function()&amp;#123;&amp;#1">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS之事件Event">
+<meta property="og:url" content="http://yoursite.com/2019/05/24/JS之事件Event/index.html">
+<meta property="og:site_name" content="I`M Blog">
+<meta property="og:description" content="Event事件事件是可以被JavaScript侦测到的行为。网页中的每个元素都可以产生某些可以触发JavaScript函数的事件.  事件是一瞬间触发。 事件绑定方式DOM节点绑定（格式）：节点.on+事件名 = 事件处理函数; 123456789//（1）DOM节点绑定//	*同名事件会被覆盖//  *事件处理函数只能冒泡阶段执行div.onclick = function()&amp;#123;&amp;#1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-30T12:56:59.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS之事件Event">
+<meta name="twitter:description" content="Event事件事件是可以被JavaScript侦测到的行为。网页中的每个元素都可以产生某些可以触发JavaScript函数的事件.  事件是一瞬间触发。 事件绑定方式DOM节点绑定（格式）：节点.on+事件名 = 事件处理函数; 123456789//（1）DOM节点绑定//	*同名事件会被覆盖//  *事件处理函数只能冒泡阶段执行div.onclick = function()&amp;#123;&amp;#1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/24/JS之事件Event/">
+
+
+
+
+
+  <title>JS之事件Event | I`M Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I`M Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/JS之事件Event/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANQIFENG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I`M Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS之事件Event</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T23:35:57+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Event事件"><a href="#Event事件" class="headerlink" title="Event事件"></a>Event事件</h1><pre><code>事件是可以被JavaScript侦测到的行为。网页中的每个元素都可以产生某些可以触发JavaScript函数的事件.
+
+事件是一瞬间触发。
+</code></pre><h3 id="事件绑定方式"><a href="#事件绑定方式" class="headerlink" title="事件绑定方式"></a>事件绑定方式</h3><pre><code>DOM节点绑定（格式）：节点.on+事件名 = 事件处理函数;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//（1）DOM节点绑定</span><br><span class="line">//	*同名事件会被覆盖</span><br><span class="line">//  *事件处理函数只能冒泡阶段执行</span><br><span class="line">div.onclick = function()&#123;&#125;</span><br><span class="line">//（2）作为html属性</span><br><span class="line">//&lt;div onclick=&quot;sum()&quot;&gt;&lt;/div&gt; 不常用，不实用。</span><br><span class="line">//（3）事件监听器</span><br><span class="line">//	*同名事件不会被覆盖</span><br><span class="line">//  *事件处理函数默认冒泡阶段执行</span><br></pre></td></tr></table></figure>
+<h3 id="常用事件"><a href="#常用事件" class="headerlink" title="常用事件"></a>常用事件</h3><h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><p>onclick 当用户点击某个对象时调用的事件。<br>ondblclick 当用户双击某个对象时调用的事件。<br>onmousedown 鼠标按钮被按下。<br>onmouseup 鼠标按键被松开。<br>onmouseover 鼠标移到某元素之上。<br>onmouseout 鼠标从某元素移开。<br>onmousemove 鼠标被移动时触发。<br>onmouseenter 在鼠标光标从元素外部移动到元素范围之内时触发。这个事件不冒泡<br>onmouseleave 在位于元素上方的鼠标光标移动到元素范围之外时触发。这个事件不冒泡<br>oncontextmenu 鼠标右键菜单展开时触发。<br>PS：click = mousedown + mouseup, dblclick = click*2(短时间内两次单击);<br>执行顺序：mouseover=&gt;mouseenter; mouseout =&gt; mouseleave</p>
+<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><p>onkeydown 某个键盘按键被按下。<br>onkeyup 某个键盘按键被松开。<br>onkeypress 键盘&lt;字符键&gt;被按下触发,而且如果按住不放的话，会重复触发此事件。</p>
+<h4 id="UI事件"><a href="#UI事件" class="headerlink" title="UI事件"></a>UI事件</h4><p>onload 页面元素（包括图片多媒体等）加载完成后<br>onscroll 滚动时触发。<br>onresize 窗口或框架被重新调整大小。</p>
+<h4 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h4><p>onselect 输入框文本被选中。<br>onblur 元素失去焦点时触发。<br>onfocus 元素获得焦点时触发。<br>onchange 元素内容被改变，且失去焦点时触发。<br>onreset 重置按钮被点击。<br>onsubmit 确认按钮被点击。<br>oninput 输入字符时触发</p>
+<h5 id="演示：常用事件"><a href="#演示：常用事件" class="headerlink" title="演示：常用事件"></a>演示：常用事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">鼠标事件</span><br><span class="line">* onclick</span><br><span class="line">* onmousedown		</span><br><span class="line">* onmouseup</span><br><span class="line">* onmouover</span><br><span class="line">* onmouseout</span><br><span class="line">* onmousemove</span><br><span class="line">结论：click = mousedown + mouseup</span><br><span class="line">dblclick = click*2</span><br></pre></td></tr></table></figure>
+<h3 id="Event对象"><a href="#Event对象" class="headerlink" title="Event对象"></a>Event对象</h3><h4 id="什么是event对象"><a href="#什么是event对象" class="headerlink" title="什么是event对象"></a>什么是event对象</h4><pre><code>事件执行过程中的状态，用来保存当前事件的信息对象
+</code></pre><h4 id="如何获取event对象"><a href="#如何获取event对象" class="headerlink" title="如何获取event对象"></a>如何获取event对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ele.事件 = function(e)&#123;</span><br><span class="line">	e = e || window.event;//获取event对象的兼容写法。IE8-：window.event</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="鼠标event对象的属性"><a href="#鼠标event对象的属性" class="headerlink" title="鼠标event对象的属性"></a>鼠标event对象的属性</h4><h5 id="1-鼠标按键"><a href="#1-鼠标按键" class="headerlink" title="1.鼠标按键"></a>1.鼠标按键</h5><ul>
+<li>button 返回当事件被触发时，哪个鼠标按钮被点击。<ul>
+<li>W3C标准<br>0: 代表鼠标按下了左键<br>1: 代表按下了滚轮<br>2: 代表按下了右键</li>
+<li>IE8-（IE8以下的浏览器）<br>1鼠标左键， 2鼠标右键， 3左右同时按， 4滚轮， 5左键加滚轮， 6右键加滚轮， 7三个同时</li>
+</ul>
+</li>
+</ul>
+<h6 id="演示：检测鼠标按键"><a href="#演示：检测鼠标按键" class="headerlink" title="演示：检测鼠标按键"></a>演示：检测鼠标按键</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">box.onmousedown = function(event)&#123;</span><br><span class="line">    switch(event.button)&#123;</span><br><span class="line">        case 0:</span><br><span class="line">            box.innerText = &apos;射击&apos;;</span><br><span class="line">            break;</span><br><span class="line">        case 1:</span><br><span class="line">            box.innerText = &apos;换枪&apos;;</span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            box.innerText = &apos;开镜&apos;;</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-光标位置信息"><a href="#2-光标位置信息" class="headerlink" title="2.光标位置信息"></a>2.光标位置信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clientX /clientY 光标相对于浏览器可视区域的位置，也就是浏览器坐标。</span><br><span class="line">screenX/screenY 光标指针相对于电脑屏幕的水平/垂直坐标。</span><br><span class="line">pageX/pageY:鼠标相对于文档的位置。</span><br><span class="line">	* 包括滚动条滚动的距离，即：e.clientX+window.scrollX</span><br><span class="line">	* IE8-不支持</span><br><span class="line">offsetX,offsetY: 光标相对于事件源对象的相对偏移量。</span><br><span class="line">	* 事件源对象：触发事件的对象</span><br></pre></td></tr></table></figure>
+<h6 id="演示-检测光标位置"><a href="#演示-检测光标位置" class="headerlink" title="演示:检测光标位置"></a>演示:检测光标位置</h6><h6 id="案例：新闻提示信息"><a href="#案例：新闻提示信息" class="headerlink" title="案例：新闻提示信息"></a>案例：新闻提示信息</h6><pre><code>//1.给所有新闻绑定鼠标移入移出移动事件
+for(var i=0;i&lt;links.length;i++){
+    links[i].onmouseover = function(){
+        //2.移入事件：
+            //2.1将title属性值作为details元素的内容
+               //2.2显示details元素
+               //2.3为了不让title默认行为影响，去除title属性
+            this.bak = this.title;  // 2.3.1移除前备份title内容,下一次移入才不会没有没有内容
+            this.removeAttribute(&apos;title&apos;); // 2.3.2去除title属性
+    }
+    links[i].onmouseout = function(){
+        //3.移出事件：隐藏details。重置title属性值
+    }
+    links[i].onmousemove = function(e){
+        //4.移动事件，设置定位
+    }
+}
+</code></pre><h4 id="键盘event对象的属性"><a href="#键盘event对象的属性" class="headerlink" title="键盘event对象的属性"></a>键盘event对象的属性</h4><ul>
+<li>which/keyCode<ul>
+<li>对于keypress事件，该属性声明了被敲击的键生成的 Unicode 字符码(ascii码)</li>
+<li>对于keydown和keyup事件，它指定了被敲击的键的虚拟键盘码。虚拟键盘码可能和使用的键盘的布局相关。</li>
+</ul>
+</li>
+<li>altKey 当事件被触发时，ALT 键是否被按下。返回值为布尔值。</li>
+<li>ctrlKey 当事件被触发时，CTRL 键是否被按下。</li>
+<li>shiftKey 当事件被触发时，Shift 键是否被按下。</li>
+</ul>
+<h6 id="案例：愤怒的小鸟"><a href="#案例：愤怒的小鸟" class="headerlink" title="案例：愤怒的小鸟"></a>案例：愤怒的小鸟</h6><pre><code>//键盘按下，根据上下左右移动小鸟
+document.onkeydown = function(e){
+    // 1.获取小鸟当前位置
+    var top = bird.offsetTop;
+    var left = bird.offsetLeft;
+    //2.初始化速度及类名变量
+    var speed = 10;
+    var className = &apos;&apos;;
+    // 3.判断按下上下左右方向键,设置left值及类名变量值
+    switch(e.keyCode){
+        case 37:
+            left -= speed;
+            className = &apos;&apos;;
+            break;
+        //同理其他方向
+    }
+    // 4.通过变量值，设置bird的位置，及类名
+    bird.style.left = left + &apos;px&apos;;
+    bird.style.top = top + &apos;px&apos;;
+    bird.className = className;
+}
+</code></pre><h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><h5 id="什么是事件冒泡："><a href="#什么是事件冒泡：" class="headerlink" title="什么是事件冒泡："></a>什么是事件冒泡：</h5><blockquote>
+<p>在一个对象上触发某类事件（如onclick事件），那么click事件就会沿着DOM树向这个对象的父级传播，从里到外，直至它被处理程序处理，或者事件到达了最顶层（document/window）</p>
+</blockquote>
+<h6 id="演示：从里到外的元素添加相同的事件，查看事件冒泡"><a href="#演示：从里到外的元素添加相同的事件，查看事件冒泡" class="headerlink" title="演示：从里到外的元素添加相同的事件，查看事件冒泡"></a>演示：从里到外的元素添加相同的事件，查看事件冒泡</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先纠正你一个重要的概念：事件是被动触发的，并不是你能主动“加”上去的。换句话说，元素只要符合某种事件的触发条件（比如鼠标点击），事件就必定会触发，而你所谓的“加”上去的是js对事件的处理过程（没有加的话就不会对事件做任何处理，但并不等于说事件就没有触发）。</span><br><span class="line">对事件冒泡的正确理解是这样的：当div1内包含div2时，用户把鼠标移到div2上，会触发div2的onmouseover，然后，div2又会把这个事件冒泡（也可以理解为上报）给自己的父元素div1，这样div1的onmouseover事件也会被触发（如果div1上面还有上级元素也会被触发，直到顶级元素html）。这时候就要看所有被触发onmouseover事件的元素有没有添加对事件的处理程序，有就会按由内到外的顺序逐级处理，没有就会像什么也没发生一样。</span><br><span class="line">所以，我最后再强调一遍，能不能理解就看你造化了：</span><br><span class="line">div1.onmouseover=function()&#123;...&#125;</span><br><span class="line">并不是说你加了这段代码div1就会触发onmouseover事件，而是说当div1触发onmouseover事件时就会执行function内的代码！</span><br></pre></td></tr></table></figure>
+<p>1）不是所有的事件都能冒泡。</p>
+<pre><code>以下事件不冒泡：blur、focus、load、unload…。
+
+【onmouseover与onmouseenter的区别】
+</code></pre><p> 2）冒泡到最顶层的目标不同。大部分浏览器到window对象，IE8-到document对象 </p>
+<h5 id="停止事件的传播"><a href="#停止事件的传播" class="headerlink" title="停止事件的传播"></a>停止事件的传播</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">标准：event.stopPropagation(); </span><br><span class="line">IE8-：event.cancelBubble = true; </span><br><span class="line">// 阻止事件冒泡兼容写法：</span><br><span class="line">if(e.stopPropagation)&#123;</span><br><span class="line">	e.stopPropagation();</span><br><span class="line">&#125;else&#123;</span><br><span class="line">e.cancelBubble = true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h5><pre><code>利用事件冒泡原理，把本来绑定给某个元素的事件委托给它的父级（已经存在页面元素）处理。
+</code></pre><h6 id="事件源对象：触发事件的元素"><a href="#事件源对象：触发事件的元素" class="headerlink" title="事件源对象：触发事件的元素"></a>事件源对象：触发事件的元素</h6><p>标准：event.target<br>IE8-：event.srcElement</p>
+<h6 id="案例：表格删除当前行"><a href="#案例：表格删除当前行" class="headerlink" title="案例：表格删除当前行"></a>案例：表格删除当前行</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//影响页面性能的三大操作：</span><br><span class="line">	//* 事件数量</span><br><span class="line">	//* dom节点操作次数</span><br><span class="line">	//* 请求次数</span><br><span class="line">output.onclick = function(e)&#123;	</span><br><span class="line">	//兼容性问题</span><br><span class="line">    e = e || window.event;</span><br><span class="line">    var target = e.target || e.srcElement;</span><br><span class="line">    if(target.className === &apos;btnDel&apos;)&#123;</span><br><span class="line">    	//this指的是谁?</span><br><span class="line">        var currentTr = target.parentNode.parentNode;</span><br><span class="line">        currentTr.parentNode.removeChild(currentTr);</span><br><span class="line">    &#125;else if(target.className === &apos;btnCopy&apos;)&#123;</span><br><span class="line">        var currentTr = target.parentNode.parentNode;</span><br><span class="line">        currentTr.parentNode.appendChild(currentTr.cloneNode(true));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="阻止浏览器默认行为"><a href="#阻止浏览器默认行为" class="headerlink" title="阻止浏览器默认行为"></a>阻止浏览器默认行为</h3><blockquote>
+<ul>
+<li>链接跳转</li>
+<li>表单提交</li>
+<li>右键菜单…</li>
+<li>文本的选择</li>
+</ul>
+</blockquote>
+<ul>
+<li>标准：event.preventDefault();</li>
+<li>IE8-：event.returnValue = false;</li>
+</ul>
+<h6 id="案例：自定义右键菜单"><a href="#案例：自定义右键菜单" class="headerlink" title="案例：自定义右键菜单"></a>案例：自定义右键菜单</h6><pre><code>document.oncontextmenu = function(e){
+    e = e || window.event;
+    //获取鼠标在文档中的位置
+    e.pageX = e.pageX || e.clientX + window.scrollX;
+    e.pageY = e.pageY || e.clientY + window.scrollY;
+    //给菜单框添加位置样式
+    contextMenu.style.left = e.pageX + &apos;px&apos;;
+    contextMenu.style.top = e.pageY + &apos;px&apos;;
+    contextMenu.style.display = &apos;block&apos;;
+    //阻止浏览器的默认行为
+    e.preventDefault ? e.preventDefault() : returnValue = false;
+}
+// 点击空白地方关闭右键菜单
+document.onclick = function(){
+    contextMenu.style.display = &apos;none&apos;;
+}
+contextMenu.onclick = function(e){
+    e = e || window.event;
+    //禁止事件冒泡
+    e.stopPropagation ? e.stopPropagation() : e.cancelBubble=true;
+}
+</code></pre><h3 id="事件捕获-反冒泡"><a href="#事件捕获-反冒泡" class="headerlink" title="事件捕获(反冒泡)"></a>事件捕获(反冒泡)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">事件的传播：</span><br><span class="line">（1）事件冒泡：从下往上 </span><br><span class="line">（2）事件捕获：从上往下</span><br><span class="line">		*监听器</span><br></pre></td></tr></table></figure>
+<h6 id="演示：事件捕获的效果"><a href="#演示：事件捕获的效果" class="headerlink" title="演示：事件捕获的效果"></a>演示：事件捕获的效果</h6><h4 id="事件监听器"><a href="#事件监听器" class="headerlink" title="事件监听器"></a>事件监听器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//标准浏览器：元素.addEventListener(事件名,事件处理函数,是否捕获（默认false，为冒泡）)</span><br><span class="line">target.addEventListener(&quot;click&quot;, fn, false);</span><br><span class="line">//IE8-：元素.attachEvent(on+事件名,事件处理函数)</span><br><span class="line">target.attachEvent(&quot;onclick&quot;,fun);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>可以绑定多个处理函数在一个对象上, 执行顺序按照绑定的顺序来(标准)</p>
+<ul>
+<li>不同元素事件执行顺序跟html结构有关</li>
+<li>相同元素事件执行顺序跟绑定先后有关</li>
+</ul>
+</li>
+<li><p>可以绑定多个函数在一个对象上, 执行顺序按照绑定的反序（ie8-）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">btn4.addEventListener(``&quot;click&quot;``,hello1);</span><br><span class="line">btn4.addEventListener(``&quot;click&quot;``,hello2);</span><br><span class="line">function` `hello1()&#123;</span><br><span class="line"> ``alert(``&quot;hello 1&quot;``);</span><br><span class="line">&#125;</span><br><span class="line">function` `hello2()&#123;</span><br><span class="line"> ``alert(``&quot;hello 2&quot;``);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="演示-绑定事件的两种方式的区别"><a href="#演示-绑定事件的两种方式的区别" class="headerlink" title="演示:绑定事件的两种方式的区别"></a>演示:绑定事件的两种方式的区别</h5></li>
+</ul>
+<h6 id="封装：绑定事件，兼容浏览器"><a href="#封装：绑定事件，兼容浏览器" class="headerlink" title="封装：绑定事件，兼容浏览器"></a>封装：绑定事件，兼容浏览器</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function bind(ele,type,handler,isCapture)&#123;</span><br><span class="line">	// 优先使用事件监听器</span><br><span class="line">	if(ele.addEventListerner)&#123;</span><br><span class="line">		// 标准浏览器</span><br><span class="line">		ele.addEventListerner(type,handler,isCapture);</span><br><span class="line">	&#125;else if(ele.attachEvent)&#123;</span><br><span class="line">		// IE8-</span><br><span class="line">		ele.attachEvent(&apos;on&apos; + type,handler);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		// DOM节点绑定方式</span><br><span class="line">		ele[&apos;on&apos; + type] = handler</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="事件的移除"><a href="#事件的移除" class="headerlink" title="事件的移除"></a>事件的移除</h3><h5 id="DOM绑定事件的移除"><a href="#DOM绑定事件的移除" class="headerlink" title="DOM绑定事件的移除"></a>DOM绑定事件的移除</h5><pre><code>ele.on+事件 = null；
+</code></pre><h5 id="事件监听器移除"><a href="#事件监听器移除" class="headerlink" title="事件监听器移除"></a>事件监听器移除</h5><ul>
+<li>标准：removeEventListener(type,fn, true)传入的参数fn要跟添加时一样(同一个函数)，否则不能移除事件</li>
+<li>IE8-：detachEvent(‘on’+type,fun)，传入的参数fun要跟添加时一样，否则不能移除事件</li>
+</ul>
+<blockquote>
+<p>注意：<br>页面事件绑定数量越多，越影响性能（速度越慢）</p>
+</blockquote>
+<h3 id="拖拽效果"><a href="#拖拽效果" class="headerlink" title="拖拽效果"></a>拖拽效果</h3><h5 id="拖拽的原理"><a href="#拖拽的原理" class="headerlink" title="拖拽的原理"></a>拖拽的原理</h5><pre><code>鼠标按下且移动鼠标时，改变当前元素的top,left值
+</code></pre><h5 id="拖拽思路及案例演示"><a href="#拖拽思路及案例演示" class="headerlink" title="拖拽思路及案例演示"></a>拖拽思路及案例演示</h5><pre><code>//给目标元素添加onmousedown事件
+//- 拖拽的前提是目标元素设置css定位
+//- 记录按下鼠标位置与元素左上角的偏移量offsetX，offsetY
+box.onmousedown = function(e){
+    var ox = e.offsetX;
+    var oy = e.offsetY;
+    //当onmousedown发生以后，此刻给document添加onmousemove事件
+    // - 意味着此刻鼠标在网页的移动都将改变目标元素的位置
+    // - 目标元素的left = 鼠标的pageX – ox
+    // - 目标元素的top = 鼠标的pageY– oy
+    document.onmousemove = function(e){
+        box.style.left = e.pageX - ox + &apos;px&apos;;
+        box.style.top =  e.pageY - oy + &apos;px&apos;;
+    }
+}
+//给目标元素或者document（效果有差异）添加onmouseup事件，清空document的onmousemove事件
+document.onmouseup = function(){
+    document.onmousemove = null;
+}        
+</code></pre><h6 id="案例：给图片实现拖拽"><a href="#案例：给图片实现拖拽" class="headerlink" title="案例：给图片实现拖拽"></a>案例：给图片实现拖拽</h6><h6 id="案例：实现复杂的拖拽效果"><a href="#案例：实现复杂的拖拽效果" class="headerlink" title="案例：实现复杂的拖拽效果"></a>案例：实现复杂的拖拽效果</h6><pre><code>1.按拖拽原套路实现拖拽效果，唯一不同的在于初始鼠标位置与大盒子左上角初始偏移量获取
+2.用数组记录mousedown、mouseover时的大盒子的定位坐标
+3.mousedown，状态值改成true；mouseup，状态值改成false
+4.mousemove过程，改变坐标元素的值：dragTop.innerText
+h2.onmousedown = function(e){
+    dragStatus.innerText = &apos;true&apos;;
+    pos.push({x:box.offsetLeft,y:box.offsetTop})
+       //注意点1：
+    var ox = e.clientX - box.offsetLeft;
+    var oy = e.clientY - box.offsetTop;
+    document.onmousemove = function(evt){
+        var left = evt.clientX - ox;
+        var top = evt.clientY - oy;
+        box.style.left = left + &apos;px&apos;;
+        box.style.top =  top + &apos;px&apos;;
+        // 注意点2：取消文字选择
+        evt.preventDefault();
+         pos.push({x:left,y:top});
+        dragTop.innerText = top;
+        dragLeft.innerText = left;
+    }
+}
+document.onmouseup = function(){
+    document.onmousemove = null;
+    dragStatus.innerText = &apos;false&apos;;
+}
+//5.点击轨迹回放，定时器拿到数组的每个索引的值，赋值给box的样式。
+//索引到达最后一个值的时候，清空定时器及数组
+box.onclick = function(e){
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+    if(target.tagName.toLowerCase() === &apos;a&apos;){
+        var i=pos.length;
+        var timer = setInterval(function(){
+            i--;
+            box.style.left = pos[i].x + &apos;px&apos;;
+            box.style.top =  pos[i].y + &apos;px&apos;;
+            dragTop.innerText = pos[i].y;
+            dragLeft.innerText = pos[i].x;
+            if(i&lt;=0){
+                clearInterval(timer);
+                pos = [];
+            }
+    },50);
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/21/发布订阅/" rel="next" title="发布订阅">
+                <i class="fa fa-chevron-left"></i> 发布订阅
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/24/JS一些笔记/" rel="prev" title="JS一些笔记">
+                JS一些笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TANQIFENG">
+            
+              <p class="site-author-name" itemprop="name">TANQIFENG</p>
+              <p class="site-description motion-element" itemprop="description">宠辱不惊，闲看庭前花开花落；去留无意，漫随天外云卷云舒。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Event事件"><span class="nav-number">1.</span> <span class="nav-text">Event事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件绑定方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">事件绑定方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">常用事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">鼠标事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘事件"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">键盘事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UI事件"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">UI事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单事件"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">表单事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#演示：常用事件"><span class="nav-number">1.0.2.4.1.</span> <span class="nav-text">演示：常用事件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event对象"><span class="nav-number">1.0.3.</span> <span class="nav-text">Event对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是event对象"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">什么是event对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何获取event对象"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">如何获取event对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标event对象的属性"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">鼠标event对象的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-鼠标按键"><span class="nav-number">1.0.3.3.1.</span> <span class="nav-text">1.鼠标按键</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：检测鼠标按键"><span class="nav-number">1.0.3.3.1.1.</span> <span class="nav-text">演示：检测鼠标按键</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-光标位置信息"><span class="nav-number">1.0.3.3.2.</span> <span class="nav-text">2.光标位置信息</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示-检测光标位置"><span class="nav-number">1.0.3.3.2.1.</span> <span class="nav-text">演示:检测光标位置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：新闻提示信息"><span class="nav-number">1.0.3.3.2.2.</span> <span class="nav-text">案例：新闻提示信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘event对象的属性"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">键盘event对象的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：愤怒的小鸟"><span class="nav-number">1.0.3.4.0.1.</span> <span class="nav-text">案例：愤怒的小鸟</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件冒泡"><span class="nav-number">1.0.4.</span> <span class="nav-text">事件冒泡</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是事件冒泡："><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">什么是事件冒泡：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：从里到外的元素添加相同的事件，查看事件冒泡"><span class="nav-number">1.0.4.0.1.1.</span> <span class="nav-text">演示：从里到外的元素添加相同的事件，查看事件冒泡</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#停止事件的传播"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">停止事件的传播</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件委托"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text">事件委托</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事件源对象：触发事件的元素"><span class="nav-number">1.0.4.0.3.1.</span> <span class="nav-text">事件源对象：触发事件的元素</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：表格删除当前行"><span class="nav-number">1.0.4.0.3.2.</span> <span class="nav-text">案例：表格删除当前行</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止浏览器默认行为"><span class="nav-number">1.0.5.</span> <span class="nav-text">阻止浏览器默认行为</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：自定义右键菜单"><span class="nav-number">1.0.5.0.0.1.</span> <span class="nav-text">案例：自定义右键菜单</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件捕获-反冒泡"><span class="nav-number">1.0.6.</span> <span class="nav-text">事件捕获(反冒泡)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：事件捕获的效果"><span class="nav-number">1.0.6.0.0.1.</span> <span class="nav-text">演示：事件捕获的效果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件监听器"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">事件监听器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#演示-绑定事件的两种方式的区别"><span class="nav-number">1.0.6.1.1.</span> <span class="nav-text">演示:绑定事件的两种方式的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#封装：绑定事件，兼容浏览器"><span class="nav-number">1.0.6.1.1.1.</span> <span class="nav-text">封装：绑定事件，兼容浏览器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的移除"><span class="nav-number">1.0.7.</span> <span class="nav-text">事件的移除</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DOM绑定事件的移除"><span class="nav-number">1.0.7.0.1.</span> <span class="nav-text">DOM绑定事件的移除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件监听器移除"><span class="nav-number">1.0.7.0.2.</span> <span class="nav-text">事件监听器移除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽效果"><span class="nav-number">1.0.8.</span> <span class="nav-text">拖拽效果</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#拖拽的原理"><span class="nav-number">1.0.8.0.1.</span> <span class="nav-text">拖拽的原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拖拽思路及案例演示"><span class="nav-number">1.0.8.0.2.</span> <span class="nav-text">拖拽思路及案例演示</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：给图片实现拖拽"><span class="nav-number">1.0.8.0.2.1.</span> <span class="nav-text">案例：给图片实现拖拽</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：实现复杂的拖拽效果"><span class="nav-number">1.0.8.0.2.2.</span> <span class="nav-text">案例：实现复杂的拖拽效果</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TANQIFENG</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
