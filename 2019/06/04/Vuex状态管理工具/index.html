@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CSS,">
+  <meta name="keywords" content="javascript,vue,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="(一)盒模型 1.盒模型=内容content+内填充padding+边框border+外间距margin  2.width、height 不是指盒子的大小，而是内容contnt的大小                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要          ​                  添加padding、bo">
-<meta name="keywords" content="CSS">
+<meta name="description" content="vuex 状态管理工具当项目较为庞大，组件结构较复杂的时候，多组件的状态共享会比较麻烦，而且如果只使用普通的组件通信方法根本无法做到高效的维护，所以vue给我们提供了一个 状态管理工具vuex，来帮助我们实现这样的功能 采用集中式存储管理应用的所有需要多组件共享的状态 在使用vuex的时候，其实核心的功能都是通过store来实现的，所以我们应该先去搞一个store  store中又可以分为多个小的">
+<meta name="keywords" content="javascript,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="盒子模型">
-<meta property="og:url" content="http://yoursite.com/2019/05/30/盒子模型/index.html">
+<meta property="og:title" content="Vuex状态管理工具">
+<meta property="og:url" content="http://yoursite.com/2019/06/04/Vuex状态管理工具/index.html">
 <meta property="og:site_name" content="I`M Blog">
-<meta property="og:description" content="(一)盒模型 1.盒模型=内容content+内填充padding+边框border+外间距margin  2.width、height 不是指盒子的大小，而是内容contnt的大小                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要          ​                  添加padding、bo">
+<meta property="og:description" content="vuex 状态管理工具当项目较为庞大，组件结构较复杂的时候，多组件的状态共享会比较麻烦，而且如果只使用普通的组件通信方法根本无法做到高效的维护，所以vue给我们提供了一个 状态管理工具vuex，来帮助我们实现这样的功能 采用集中式存储管理应用的所有需要多组件共享的状态 在使用vuex的时候，其实核心的功能都是通过store来实现的，所以我们应该先去搞一个store  store中又可以分为多个小的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-30T13:32:25.833Z">
+<meta property="og:updated_time" content="2019-06-04T15:18:13.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盒子模型">
-<meta name="twitter:description" content="(一)盒模型 1.盒模型=内容content+内填充padding+边框border+外间距margin  2.width、height 不是指盒子的大小，而是内容contnt的大小                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要          ​                  添加padding、bo">
+<meta name="twitter:title" content="Vuex状态管理工具">
+<meta name="twitter:description" content="vuex 状态管理工具当项目较为庞大，组件结构较复杂的时候，多组件的状态共享会比较麻烦，而且如果只使用普通的组件通信方法根本无法做到高效的维护，所以vue给我们提供了一个 状态管理工具vuex，来帮助我们实现这样的功能 采用集中式存储管理应用的所有需要多组件共享的状态 在使用vuex的时候，其实核心的功能都是通过store来实现的，所以我们应该先去搞一个store  store中又可以分为多个小的">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/30/盒子模型/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/04/Vuex状态管理工具/">
 
 
 
 
 
-  <title>盒子模型 | I`M Blog</title>
+  <title>Vuex状态管理工具 | I`M Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/盒子模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/Vuex状态管理工具/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TANQIFENG">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">盒子模型</h1>
+          <h1 class="post-title" itemprop="name headline">Vuex状态管理工具</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T00:07:57+08:00">
-                2019-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T23:15:07+08:00">
+                2019-06-04
               </time>
             
 
@@ -295,8 +295,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML+CSS</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -332,16 +332,113 @@
       
 
       
-        <h2 id="一-盒模型"><a href="#一-盒模型" class="headerlink" title="(一)盒模型"></a>(一)盒模型</h2><p> 1.盒模型=内容content+内填充padding+边框border+外间距margin<br>  2.width、height 不是指盒子的大小，而是内容contnt的大小<br>                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要         </p>
-<p>​                  添加padding、border,盒子会被撑大。为了保证盒子大小不变，width、height需要减去对应的值.</p>
-<h2 id="二-padding"><a href="#二-padding" class="headerlink" title="(二)padding"></a>(二)padding</h2><p>1.padding取值：遵循上右下左原则,缺省的值找反义词的值<br>2.padding-方位<br>3.注意；   （1）padding不可以为负值；<br>                     (2) 背景会从padding的区域开始摆放，说明<strong>background-position:0 0;在padding的左上角</strong>。</p>
-<h2 id="三-margin"><a href="#三-margin" class="headerlink" title="(三)margin"></a>(三)margin</h2><p>1.margin取值：遵循上右下左原则，缺省的值找反义词的值<br>2.margin-方位<br>3注意:    margin可以取负值</p>
-<h2 id="四-页面"><a href="#四-页面" class="headerlink" title="(四)页面"></a>(四)页面</h2><p>结构：<br>                <strong>最外层    </strong>#qianfeng -<strong>每一层大盒子#id名-版心容器</strong>（专门放内容的.container）<br>                页面链接css文件时，先链接到base.css,再单独链接到页面对应的css文件。</p>
-<p>​        （base.css是公共部分样式）    base.css 存在的意义:<br>                                                        1.清除默认样式<br>                                                        2.添加公共样式<br>                                                        3.添加页面公共部分<br>                                                         页面.css书写页面剩余部分的样式</p>
-<h2 id="五-样式"><a href="#五-样式" class="headerlink" title="(五)样式"></a>(五)样式</h2><p>1.清除默认样式<br>2.添加公共样式<br>            版心容器{宽度1000、背景、居中}<br>3.书写页面样式<br>            最外层宽度100%-每一层大容器｛宽度100%、高度背景色｝，每一层的版心容器｛高度跟随｝<br>  注意：<br>        1.h1最好是用背景图片 文本用text-indent隐藏<br>        2.<strong>列表中，li（float:left;）,每个列表项的样式给a标签加，</strong><br>        <strong>a｛display:block;width:;height:;｝</strong>但是宽度不一致的情况下，a标签就不能设置具体宽度，由其<strong>字体个数决定width</strong>.一般此时的盒子大小应由各自内容的width+左右padding.<br>        3.若容器内<strong>都是文本的</strong>，都添加<strong>｛line-height:;font-size:;color:;｝</strong>从有参照文本的那一段开始量.</p>
-<p>​    4.列表悬停改变样式的话，建议<strong>鼠标悬停在li上，改变子元素a的样式</strong>，写法<strong>li:hover a</strong></p>
-<p>​    5.当父元素与子元素存在上间距，若子元素不存在浮动的情况，就给父元素加padding-top,而不要给第一个字元素加margin-top</p>
-<p>​        </p>
+        <h3 id="vuex-状态管理工具"><a href="#vuex-状态管理工具" class="headerlink" title="vuex 状态管理工具"></a>vuex 状态管理工具</h3><p>当项目较为庞大，组件结构较复杂的时候，多组件的状态共享会比较麻烦，而且如果只使用普通的组件通信方法根本无法做到高效的维护，所以vue给我们提供了一个 状态管理工具vuex，来帮助我们实现这样的功能</p>
+<p>采用集中式存储管理应用的所有需要多组件共享的状态</p>
+<p>在使用vuex的时候，其实核心的功能都是通过store来实现的，所以我们应该先去搞一个store</p>
+<ol>
+<li>store中又可以分为多个小的部分：</li>
+</ol>
+<p>state，getters，actions，mutations</p>
+<p>state负责保存状态</p>
+<p>在组件中使用状态的时候，可以通过this.$store.state来使用，但是有的时候，我们希望自己定义一条数据来接收store中的状态的话，为了实现响应式，要使用computed, 而且也可以使用mapState辅助函数</p>
+<ol start="2">
+<li>将store传入到根实例中</li>
+</ol>
+<p>这样组件中就可以使用this.$store来调用store的api了</p>
+<ol start="3">
+<li><p>想要更改状态只有一种办法，就是通过mutations的方法，利用mapMutations可以帮助我们在组件的methods中设置调用mutations方法的方法</p>
+<p> 调用mutations的时候，希望我们在commit里传入一个对象</p>
+</li>
+<li><p>如果组件产生用户操作后需要发送一个异步的请求，需要让组件去调用actions的方法，actions中进行异步操作后再去调用mutations来更改状态</p>
+<p> 在组件中利用this.$store.dispatch方法来调用actions的方法，执行完以后操作后，actions的方法会接收到一个context参数，它身上有commit方法，直接用这个commit方法调用mutations的方法</p>
+<p> 也可以使用mapMutations来给组件身上挂载一些actions的方法</p>
+</li>
+<li><p>getters</p>
+<p> 根据一条现有状态，派生出一条新状态</p>
+<p> 我们现在已经有一条状态，比如，购物车数据，但是我们现在还需要一条新的状态，总数量和总价钱，总数这个状态，其实就根据购物车状态派生出来的</p>
+</li>
+<li><p>modules</p>
+<p> vuex中store只能有一个，但是为了开发方便，允许我们在vuex中配置模块，每一个模块中都有自己独立的state、getters、mutations、actions，然后再合并到一起，但是需要注意的是，各个模块的state不会合并，而是按照模块去存放数据</p>
+</li>
+</ol>
+<h3 id="整理"><a href="#整理" class="headerlink" title="整理"></a>整理</h3><p>vuex是一个状态管理工具，解决多组件间的状态共享</p>
+<p>vuex里面有一个核心的大store，而且一个项目里只能有一个store，唯一数据源</p>
+<p>vuex 中store需要配置几种小玩意儿：</p>
+<ol>
+<li>state，是一个纯对象，存储需要管理的状态</li>
+</ol>
+<p>组件如何使用state中管理的状态？</p>
+<p>因为已经将store注入到根实例里，所以在组件可以利用this.$store.state来使用state中管理的状态</p>
+<p>为了做到响应式（state中数据改变，组件中使用的也改变），vuex要求我们使用计算属性来接收state中的数据</p>
+<p>computed: {<br>    number () { return this.$store.state.number }<br>}</p>
+<p>也可以使用mapState辅助函数来帮助组件使用state中的状态</p>
+<p>computed: mapState([‘number’])<br>computed: mapState({<br>    number: state =&gt; state.number,<br>    number: ‘number’<br>})</p>
+<p>computed: {<br>    //…自己的计算属性<br>    …mapState([‘number’])<br>}</p>
+<ol start="2">
+<li><p>mutations, 更改state只有唯一的一种方式！！！！就是利用mutations的方法来进行更改</p>
+<p> mutations也是一个纯纯的对象，身上有一些方法，这些方法能接收到state，并且进行更改</p>
+<p> mutations = {</p>
+<pre><code>increment (state) {
+    state.number ++;
+}
+</code></pre><p> }</p>
+<p> 当mutations的方法被调用的时候，状态就会更新</p>
+<p> 在组件中视图store中的commit方法来调用</p>
+<p> this.$store.commit(‘increment’)</p>
+<p> 传参数的时候推荐我们传入一个对象（payload）<br> mutations = {</p>
+<pre><code>increment (state, payload) {
+    state.number += payload.num ;
+}
+</code></pre><p> }</p>
+<p> this.$store.commit(‘increment’, { num: 2 })</p>
+<p> 调用的方式还有一种，就是直接搞一个对象进来</p>
+<p> this.$store.commit({ type: ‘increment’, num: 2 }) //这种最棒！</p>
+<p> 最好把方法的名字搞成常量</p>
+<p> const INCREMENT = ‘INCREMENT’</p>
+<p> mutations = {</p>
+<pre><code>[INCREMENT] (state, payload) {
+    state.number += payload.num ;
+}
+</code></pre><p> }<br> this.$store.commit({ type: INCREMENT, num: 2 })</p>
+</li>
+</ol>
+<pre><code>在组件中调用mutations的时候其实还可以用mapMutations辅助函数来帮我们将mutations&apos;中的方法放入到组件的methods中
+
+methods: mapMutations([INCREMENT])//其他的用法不写啦，和mapState基本一样
+</code></pre><ol start="3">
+<li><p>actions， 注意！mutations里面不能放入异步操作，所以异步操作需要放在actions</p>
+<p> actions是一个纯纯的对象，里面放了很多的方法，这些方法会接收到一个context的对象，这个对象上有commit方法，我们就可以在做完异步操作后，调用commit方法来调用mutations的方法更改状态</p>
+<p> actions = {</p>
+<pre><code>asyncIncrement (context, payload) {
+    axios.get(&apos;/random&apos;).then(res =&gt; {
+        let num = res.data.num
+        //准备调用mutations的INCREMENT方法来更改状态
+        context.commit({
+            type: INCREMENT,
+            num
+        })
+    })
+}
+</code></pre><p> }</p>
+<p> 在组件中调用actions的方法需要使用store的dispatch</p>
+<p> this.$store.dispatch(‘asyncIncrement’,{n:1})</p>
+<p> 也可以使用mapActions将actions的方法放入组件中</p>
+</li>
+<li><p>getters， 有的时候需要根据一条现有的状态派生新状态，比如，根据 当前用户的购物车里的商品数据，需要得到用户购物车的总价钱，我们就可以利用getters来派生数据</p>
+<p> getters = {</p>
+<pre><code>doubleNumber (state) {
+    return state.number * 2
+}
+</code></pre><p> }</p>
+<p> 在组件中通过this.$store.getters来使用getters的数据，也可以使用mapGetters辅助函数</p>
+<p> 这样的话当state中的状态改变，派生出来的getters也会改变</p>
+</li>
+<li><p>modules</p>
+<p> 做项目的时候，可能要同时管理A,B,C这三个状态，因为开发者不一样，就会在一个state上保存可能毫不相关的多个状态，容易引起冲突等，因为store只能有一个，VUEX就做了模块的处理，也就是说，可以将某一种状态管理所需要的state，getters，actions，mutations写在一个模块中，然后在创建store的时候进行配置</p>
+<p> 这样的话开发的时候可以在各自的模块中进行管理，store就会对模块中的数据进行合并，但是state的数据依然是分开模块的，例如，我们现在有a，b两个模块，他们中都有number数据，我们使用的时候就是这样的：</p>
+<p> this.$store.state.a.number<br> this.$store.state.b.number</p>
+</li>
+</ol>
 
       
     </div>
@@ -359,7 +456,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -372,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/28/vue一些小笔记/" rel="next" title="vue一些小笔记">
-                <i class="fa fa-chevron-left"></i> vue一些小笔记
+              <a href="/2019/05/30/盒模型3d变换关键帧动画/" rel="next" title="盒模型3d变换关键帧动画">
+                <i class="fa fa-chevron-left"></i> 盒模型3d变换关键帧动画
               </a>
             
           </div>
@@ -381,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/30/弹性盒模型/" rel="prev" title="弹性盒模型">
-                弹性盒模型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -518,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-盒模型"><span class="nav-number">1.</span> <span class="nav-text">(一)盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-padding"><span class="nav-number">2.</span> <span class="nav-text">(二)padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-margin"><span class="nav-number">3.</span> <span class="nav-text">(三)margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-页面"><span class="nav-number">4.</span> <span class="nav-text">(四)页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-样式"><span class="nav-number">5.</span> <span class="nav-text">(五)样式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex-状态管理工具"><span class="nav-number">1.</span> <span class="nav-text">vuex 状态管理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整理"><span class="nav-number">2.</span> <span class="nav-text">整理</span></a></li></ol></div>
             
 
           </div>
